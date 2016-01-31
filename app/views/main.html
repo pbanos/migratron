@@ -1,0 +1,2633 @@
+<div class="jumbotron">
+    <p class="lead">
+    <img src="images/logo.png" alt="Soy migratrón, un algoritmo automatizado para la elección de tratamiento en la migraña vestibular."><br>
+    </p>
+</div>
+
+<div class="row marketing">
+  <div id="restricciones">
+   <ul>
+    <li>
+      ¿Está embarazada o tiene deseo de gestación?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="embarazo" data-ng-value="true" ng-model="respuestas.embarazo">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="embarazo" data-ng-value="false" ng-model="respuestas.embarazo">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      ¿Es alérgico o intolerante a acetazolamida?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_acetazolamida" data-ng-value="true" ng-model="respuestas.alergia_acetazolamida">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_acetazolamida" data-ng-value="false" ng-model="respuestas.alergia_acetazolamida">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      ¿Es alérgico o intolerante a amitriptilina?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_amitriptilina" data-ng-value="true" ng-model="respuestas.alergia_amitriptilina">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_amitriptilina" data-ng-value="false" ng-model="respuestas.alergia_amitriptilina">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+        <li>
+      ¿Es alérgico o intolerante a flunarizina?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_flunarizina" data-ng-value="true" ng-model="respuestas.alergia_flunarizina">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_flunarizina" data-ng-value="false" ng-model="respuestas.alergia_flunarizina">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+        <li>
+      ¿Es alérgico o intolerante a propranolol?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_propranolol" data-ng-value="true" ng-model="respuestas.alergia_propranolol">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_propranolol" data-ng-value="false" ng-model="respuestas.alergia_propranolol">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+        <li>
+      ¿Es alérgico o intolerante a topiramato?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_topiramato" data-ng-value="true" ng-model="respuestas.alergia_topiramato">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_topiramato" data-ng-value="false" ng-model="respuestas.alergia_topiramato">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+        <li>
+      ¿Es alérgico o intolerante a valproato?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_valproato" data-ng-value="true" ng-model="respuestas.alergia_valproato">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="alergia_valproato" data-ng-value="false" ng-model="respuestas.alergia_valproato">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+        <li>
+      Hipotensión. ¿La tensión arterial sistólica del paciente es inferior a 100 mmHg?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="hipotension" data-ng-value="true" ng-model="respuestas.hipotension">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="hipotension" data-ng-value="false" ng-model="respuestas.hipotension">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Bradicardia. ¿La frecuencia cardiaca del paciente es inferior a 50 lpm?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="bradicardia" data-ng-value="true" ng-model="respuestas.bradicardia">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="bradicardia" data-ng-value="false" ng-model="respuestas.bradicardia">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Infarto de miocardio. ¿El paciente se encuentra en el periodo de recuperación tras un infarto agudo de miocardio?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="infarto_de_miocardio" data-ng-value="true" ng-model="respuestas.infarto_de_miocardio">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="infarto_de_miocardio" data-ng-value="false" ng-model="respuestas.infarto_de_miocardio">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+     <li>
+      Angina de pecho. ¿El paciente padece de anginas de pecho?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="angina" data-ng-value="true" ng-model="respuestas.angina">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="angina" data-ng-value="false" ng-model="respuestas.angina">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Bradiarritmia o bloqueo cardiaco. ¿El paciente padece algún tipo de bradiarritmia o de bloqueo cardiaco?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="arritmia_o_bloqueo_cardiaco" data-ng-value="true" ng-model="respuestas.arritmia_o_bloqueo_cardiaco">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="arritmia_o_bloqueo_cardiaco" data-ng-value="false" ng-model="respuestas.arritmia_o_bloqueo_cardiaco">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Arteriopatía periférica. ¿El paciente padece de claudicación intermitente, enfermedad de Raynaud u otro tipo de arteriopatía periférica?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="arteriopata_perifrica" data-ng-value="true" ng-model="respuestas.arteriopata_perifrica">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="arteriopata_perifrica" data-ng-value="false" ng-model="respuestas.arteriopata_perifrica">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Psoriasis. ¿El paciente padece de psoriasis?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="psoriasis" data-ng-value="true" ng-model="respuestas.psoriasis">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="psoriasis" data-ng-value="false" ng-model="respuestas.psoriasis">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Fotosensibilidad. ¿El paciente tiene un aumento de fotosensibilidad?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="fotosensibilidad" data-ng-value="true" ng-model="respuestas.fotosensibilidad">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="fotosensibilidad" data-ng-value="false" ng-model="respuestas.fotosensibilidad">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Porfiria. ¿El paciente sufre de porfiria?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="porfiria" data-ng-value="true" ng-model="respuestas.porfiria">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="porfiria" data-ng-value="false" ng-model="respuestas.porfiria">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Insuficiencia hepática. ¿El paciente sufre de insuficiencia hepática?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="insuficiencia_heptica" data-ng-value="true" ng-model="respuestas.insuficiencia_heptica">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="insuficiencia_heptica" data-ng-value="false" ng-model="respuestas.insuficiencia_heptica">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Hepatitis aguda o crónica. ¿El paciente padece algún tipo de hepatitis?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="hepatitis_aguda_o_crnica" data-ng-value="true" ng-model="respuestas.hepatitis_aguda_o_crnica">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="hepatitis_aguda_o_crnica" data-ng-value="false" ng-model="respuestas.hepatitis_aguda_o_crnica">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Dolor abdominal. ¿El paciente padece dolor abdominal?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="dolor_abdominal" data-ng-value="true" ng-model="respuestas.dolor_abdominal">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="dolor_abdominal" data-ng-value="false" ng-model="respuestas.dolor_abdominal">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Estreñimiento. ¿El paciente sufre de estreñimiento?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="estrenimiento" data-ng-value="true" ng-model="respuestas.estrenimiento">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="estrenimiento" data-ng-value="false" ng-model="respuestas.estrenimiento">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Pancreatitis. ¿El paciente padece o ha padecido de pancreatitis?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="pancreatitis" data-ng-value="true" ng-model="respuestas.pancreatitis">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="pancreatitis" data-ng-value="false" ng-model="respuestas.pancreatitis">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Hipertiroidismo. ¿El paciente padece de hipertiroidismo?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="hipertiroidismo" data-ng-value="true" ng-model="respuestas.hipertiroidismo">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="hipertiroidismo" data-ng-value="false" ng-model="respuestas.hipertiroidismo">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Diabetes. ¿El paciente es diabético?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="diabetes" data-ng-value="true" ng-model="respuestas.diabetes">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="diabetes" data-ng-value="false" ng-model="respuestas.diabetes">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Tumores de la glándula suprarrenal. ¿El paciente padece de feocromocitoma o neuroblastoma?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="feocromocitoma" data-ng-value="true" ng-model="respuestas.feocromocitoma">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="feocromocitoma" data-ng-value="false" ng-model="respuestas.feocromocitoma">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Aplasia de médula ósea. ¿El paciente tiene antecedentes de aplasia de médula ósea?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="aplasia_medular" data-ng-value="true" ng-model="respuestas.aplasia_medular">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="aplasia_medular" data-ng-value="false" ng-model="respuestas.aplasia_medular">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Acidosis metabólica. ¿El paciente padece acidosis metabólica?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="acidosis_metablica" data-ng-value="true" ng-model="respuestas.acidosis_metablica">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="acidosis_metablica" data-ng-value="false" ng-model="respuestas.acidosis_metablica">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Insuficiencia renal. ¿El paciente presenta algún grado de insuficiencia renal o hipoproteinemia?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="insuficiencia_renal" data-ng-value="true" ng-model="respuestas.insuficiencia_renal">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="insuficiencia_renal" data-ng-value="false" ng-model="respuestas.insuficiencia_renal">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Asma. ¿El paciente es asmático?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="asma" data-ng-value="true" ng-model="respuestas.asma">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="asma" data-ng-value="false" ng-model="respuestas.asma">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Epilepsia. ¿El paciente es epiléptico?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="epilepsia" data-ng-value="true" ng-model="respuestas.epilepsia">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="epilepsia" data-ng-value="false" ng-model="respuestas.epilepsia">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Miastenia gravis. ¿El paciente padece de miastenia gravis?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="miastenia_gravis" data-ng-value="true" ng-model="respuestas.miastenia_gravis">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="miastenia_gravis" data-ng-value="false" ng-model="respuestas.miastenia_gravis">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Enfermedad de Parkinson. ¿El paciente padece de enfermedad de Parkinson o síntomas extrapiramidales parkinsonianos?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="parkinson" data-ng-value="true" ng-model="respuestas.parkinson">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="parkinson" data-ng-value="false" ng-model="respuestas.parkinson">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Glaucoma crónico. ¿El paciente está diagnosticado de glaucoma crónico?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="glaucoma" data-ng-value="true" ng-model="respuestas.glaucoma">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="glaucoma" data-ng-value="false" ng-model="respuestas.glaucoma">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Psicosis. ¿El paciente padece de esquizofrenia u otro tipo de psicosis?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="esquizofrenia" data-ng-value="true" ng-model="respuestas.esquizofrenia">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="esquizofrenia" data-ng-value="false" ng-model="respuestas.esquizofrenia">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Trastorno bipolar. ¿El paciente padece de trastorno bipolar?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="trastorno_bipolar" data-ng-value="true" ng-model="respuestas.trastorno_bipolar">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="trastorno_bipolar" data-ng-value="false" ng-model="respuestas.trastorno_bipolar">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Tendencia suicida. ¿Existen tendencias suicidas en el paciente?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="tendencia_suicida" data-ng-value="true" ng-model="respuestas.tendencia_suicida">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="tendencia_suicida" data-ng-value="false" ng-model="respuestas.tendencia_suicida">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Depresión. ¿El paciente presenta atraviesa actualmente un episodio de depresión?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="depresin" data-ng-value="true" ng-model="respuestas.depresin">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="depresin" data-ng-value="false" ng-model="respuestas.depresin">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Alteraciones cognitivas o de la conducta. ¿Se han observado en el paciente alteraciones cognitivas o de la conducta?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="alteraciones_cognitivas" data-ng-value="true" ng-model="respuestas.alteraciones_cognitivas">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="alteraciones_cognitivas" data-ng-value="false" ng-model="respuestas.alteraciones_cognitivas">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Gota / Hiperuricemia. ¿El paciente padece de gota o de hiperuricemia?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="gota__hiperuricemia" data-ng-value="true" ng-model="respuestas.gota__hiperuricemia">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="gota__hiperuricemia" data-ng-value="false" ng-model="respuestas.gota__hiperuricemia">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Lupus. ¿El paciente padece de lupus eritematoso sistémico?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="lupus" data-ng-value="true" ng-model="respuestas.lupus">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="lupus" data-ng-value="false" ng-model="respuestas.lupus">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Obstrucción urinaria. ¿El paciente padece de hipertrofia prostática u otro tipo de uropatía obstructiva?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="hipertrofia_prosttica_o_uropata_obstructiva" data-ng-value="true" ng-model="respuestas.hipertrofia_prosttica_o_uropata_obstructiva">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="hipertrofia_prosttica_o_uropata_obstructiva" data-ng-value="false" ng-model="respuestas.hipertrofia_prosttica_o_uropata_obstructiva">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Cálculos urinarios. ¿El paciente tiene historia previa de cálculos urinarios?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="clculos_urinarios" data-ng-value="true" ng-model="respuestas.clculos_urinarios">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="clculos_urinarios" data-ng-value="false" ng-model="respuestas.clculos_urinarios">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>
+      Ingesta de alcohol. ¿El paciente desea tomar alcohol durante el tratamiento?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="alcohol" data-ng-value="true" ng-model="respuestas.alcohol">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="alcohol" data-ng-value="false" ng-model="respuestas.alcohol">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="row marketing" id="efectos_secundarios">
+    <p>Marque los farmacos que está tomando el paciente:</p>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_abiraterona"> Abiraterona
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_acarbosa"> Acarbosa
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_aceclofenaco"> Aceclofenaco
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_acenocumarol"> Acenocumarol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_acetazolamida"> Acetazolamida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_aciclovir"> Aciclovir
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_adenosina"> Adenosina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_agomelatina"> Agomelatina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_albiglutida"> Albiglutida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_algeldrato"> Algeldrato
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_almasilato"> Almasilato
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_alprazolam"> Alprazolam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_alprostadilo"> Alprostadilo
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_altizida"> Altizida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_amiodarona"> Amiodarona
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_amitriptilina"> Amitriptilina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_atomoxetina"> Atomoxetina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_atropina"> Atropina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_baclofeno"> Baclofeno
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_bambuterol"> Bambuterol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_bendroflumetiazida"> Bendroflumetiazida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_biperideno"> Biperideno
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_bleomicina"> Bleomicina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_bromazepam"> Bromazepam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_bromurodepiridostigmina"> Bromuro de piridostigmina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_bumetanida"> Bumetanida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_bupropin"> Bupropión
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_canaglifozina"> Canaglifozina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_carbamazepina"> Carbamazepina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_carbonatodecalcio"> Carbonato de calcio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_carbonatodelitio"> Carbonato de litio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_carbonatodemagnesio"> Carbonato de magnesio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_celecoxib"> Celecoxib
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_ciclosporina"> Ciclosporina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_ciproterona"> Ciproterona
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_cisplatino"> Cisplatino
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_citalopram"> Citalopram
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clobazam"> Clobazam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clomipramina"> Clomipramina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clonacepam"> Clonacepam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clonidina"> Clonidina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clopidogrel"> Clopidogrel
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clorazepatodipotsico"> Clorazepato dipotásico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clordiacepxido"> Clordiacepóxido
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clorpromacina"> Clorpromacina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clortalidona"> Clortalidona
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clorurodecalcio"> Cloruro de calcio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clorurodesuxametonio"> Cloruro de suxametonio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clotiazepam"> Clotiazepam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_clozapina"> Clozapina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_codena"> Codeína
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_colestipol"> Colestipol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_colestiramina"> Colestiramina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_dapaglifozina"> Dapaglifozina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_dexibuprofeno"> Dexibuprofeno
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_dexketoprofeno"> Dexketoprofeno
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_diazepam"> Diazepam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_diclofenaco"> Diclofenaco
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_digoxina"> Digoxina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_diltiazem"> Diltiazem
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_disopiramida"> Disopiramida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_disulfiram"> Disulfiram
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_dopamina"> Dopamina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_doxorubicina"> Doxorubicina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_dronedarona"> Dronedarona
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_droperidol"> Droperidol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_empaglifozina"> Empaglifozina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_epinefrina"> Epinefrina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_ergotamina"> Ergotamina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_ertapenem"> Ertapenem
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_escitalopram"> Escitalopram
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_escopolamina"> Escopolamina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_eslicarbazepina"> Eslicarbazepina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_estradiol"> Estradiol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_estriol"> Estriol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_estrgenosconjugados"> Estrógenos conjugados
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_etinilestradiol"> Etinilestradiol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_etoricoxib"> Etoricoxib
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_etosuximida"> Etosuximida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_exenatida"> Exenatida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_fampridina"> Fampridina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_fenilbutiratosdico"> Fenilbutirato sódico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_fenilefrinanasal"> Fenilefrina nasal
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_fenitona"> Fenitoína
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_fenobarbital"> Fenobarbital
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_fentanilo"> Fentanilo
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_fingolimod"> Fingolimod
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_flecainida"> Flecainida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_fluconazol"> Fluconazol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_flufenacina"> Flufenacina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_flunarizina"> Flunarizina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_fluoxetina"> Fluoxetina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_flurazepam"> Flurazepam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_flurbiprofeno"> Flurbiprofeno
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_fluvoxamina"> Fluvoxamina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_formoterol"> Formoterol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_fosfatodecalcio"> Fosfato de calcio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_furosemida"> Furosemida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_galantamina"> Galantamina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_glibenclamida"> Glibenclamida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_gliclazida"> Gliclazida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_glimepirida"> Glimepirida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_glipizida"> Glipizida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_glisentida"> Glisentida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_gluconatodecalcio"> Gluconato de calcio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_gomaguar"> Goma guar
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_granisetrn"> Granisetrón
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_haloperidol"> Haloperidol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_heparina"> Heparina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_hidralazina"> Hidralazina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_hidroclorotiazida"> Hidroclorotiazida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_hidrxidodemagnesio"> Hidróxido de magnesio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_hiprico"> Hipérico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_ibuprofeno"> Ibuprofeno
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_imatinib"> Imatinib
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_imipenem"> Imipenem
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_imipramina"> Imipramina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_indacaterol"> Indacaterol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_indapamida"> Indapamida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_indometacina"> Indometacina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_insulina"> Insulina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_isonixina"> Isonixina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_josamicina"> Josamicina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_ketoprofeno"> Ketoprofeno
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_ketorolaco"> Ketorolaco
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_lactatodecalcio"> Lactato de calcio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_lamotrigina"> Lamotrigina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_levodopa"> Levodopa
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_levomepromazina"> Levomepromazina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_lidocana"> Lidocaína
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_linagliptina"> Linagliptina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_linezolid"> Linezolid
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_liraglutida"> Liraglutida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_lisdexanfetamina"> Lisdexanfetamina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_lixisenatida"> Lixisenatida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_lorazepam"> Lorazepam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_lormetazepam"> Lormetazepam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_lornoxicam"> Lornoxicam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_maprotilina"> Maprotilina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_medazepam"> Medazepam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_meloxicam"> Meloxicam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_meropenem"> Meropenem
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_metacolina"> Metacolina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_metadona"> Metadona
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_metformina"> Metformina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_metildigoxina"> Metildigoxina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_metildopa"> Metildopa
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_metotrexato"> Metotrexato
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_miglitol"> Miglitol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_mirabegron"> Mirabegron
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_moclobemida"> Moclobemida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_modafilino"> Modafilino
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_morfina"> Morfina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_nabumetona"> Nabumetona
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_nafazolinanasal"> Nafazolina nasal
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_naproxeno"> Naproxeno
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_nateglinida"> Nateglinida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_neostigmina"> Neostigmina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_nifedipino"> Nifedipino
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_nilotinib"> Nilotinib
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_nimodipino"> Nimodipino
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_nisoldipino"> Nisoldipino
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_norepinefrina"> Norepinefrina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_nortriptilina"> Nortriptilina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_olodaterol"> Olodaterol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_ondansetrn"> Ondansetrón
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_opio"> Opio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_orlistat"> Orlistat
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_oxazepam"> Oxazepam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_oxcarbazepina"> Oxcarbazepina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_oxibatosdico"> Oxibato sódico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_oximetazolinanasal"> Oximetazolina nasal
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_palonosetrn"> Palonosetrón
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_paracetamol"> Paracetamol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_parecoxib"> Parecoxib
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_paroxetina"> Paroxetina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_perfenazina"> Perfenazina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_periciazina"> Periciazina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_petidina"> Petidina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_pidolatodecalcio"> Pidolato de calcio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_pimozida"> Pimozida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_pinazepam"> Pinazepam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_pioglitazona"> Pioglitazona
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_piretanida"> Piretanida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_piroxicam"> Piroxicam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_pixantrona"> Pixantrona
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_prazosina"> Prazosina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_primidona"> Primidona
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_procainamida"> Procainamida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_prociclinida"> Prociclinida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_promestrieno"> Promestrieno
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_propafenona"> Propafenona
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_pseudoefedrina"> Pseudoefedrina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_ranolazina"> Ranolazina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_rasagilina"> Rasagilina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_repaglinida"> Repaglinida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_rifampicina"> Rifampicina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_ritonavir"> Ritonavir
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_rizatriptn"> Rizatriptán
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_rufinamida"> Rufinamida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_salbutamol"> Salbutamol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_salmeterol"> Salmeterol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_saquinavir"> Saquinavir
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_saxagliptina"> Saxagliptina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_selegilina"> Selegilina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_sertralina"> Sertralina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_sitagliptina"> Sitagliptina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_sotalol"> Sotalol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_sulfacrato"> Sulfacrato
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_sunitinib"> Sunitinib
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_tacrolimus"> Tacrolimus
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_tenoxicam"> Tenoxicam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_teofilina"> Teofilina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_terbinafina"> Terbinafina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_terbutalina"> Terbutalina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_timololoftlmico"> Timolol oftálmico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_tiopentalsdico"> Tiopental sódico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_topiramato"> Topiramato
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_torasemida"> Torasemida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_tramazolinanasal"> Tramazolina nasal
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_tranilcipromina"> Tranilcipromina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_triamtereno"> Triamtereno
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_triazolam"> Triazolam
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_trihexifenilo"> Trihexifenilo
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_trisilicatodemagnesio"> Trisilicato de magnesio
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_trixidodearsnico"> Trióxido de arsénico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_valproato"> Valproato
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_valpromida"> Valpromida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_vemurafenib"> Vemurafenib
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_verapamilo"> Verapamilo
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_vilanterol"> Vilanterol
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_vildagliptina"> Vildagliptina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_vinblastina"> Vinblastina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_warfarina"> Warfarina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_xilometazolinanasal"> Xilometazolina nasal
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_xipamida"> Xipamida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_zidovudina"> Zidovudina
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_zolpidem"> Zolpidem
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_zonisamida"> Zonisamida
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_cidoacetilsaliclico"> Ácido acetilsalicílico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_cidoascrbico"> Ácido ascórbico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_cidomefenmico"> Ácido mefenámico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_cidoniflmico"> Ácido niflúmico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.farma_xidodemagnesio"> Óxido de magnesio
+        </label>
+    </div>  <p ng-if="respuestas.farma_farmaco">Esta tomando farmaco</p>
+</div>
+<div class="row marketing" id="sinergias">
+    <p>Marque otras condiciones a tratar del paciente:</p>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.angina">Anginas de pecho de repetición
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.ansiedad">Ansiedad con taquicardias y temblores
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.arritmia_cardiaca">Arritmia cardiaca suceptible de mejora con betabloqueantes
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.ausencias">Ausencias
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.depresin">Depresión
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.dolor_neuroptico">Dolor neuropático crónico
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.edema">Edemas por causa medicamentosa o insuficiencia cardiaca
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.eneuresis_nocturna">Eneuresis nocturna sin causa orgánica
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.epilepsia">Epilepsia
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.glaucoma">Glaucoma crónico de cualquier clase
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.hipertensin_arterial">Hipertensión arterial
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.miocardiopata_hipertrfica">Miocardiopatía hipertrófica obstructiva
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.temblor_esencial">Temblor esencial
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.tics">Tics
+        </label>
+    </div>
+        <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.tirotoxicosis">Tirotoxicosis
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.trastorno_bipolar">Trastorno bipolar
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.varices_esofgicas">Varices esofágicas
+        </label>
+    </div>
+</div>
+<div class="row marketing" id="evaluacion">
+  <ul>
+    <li ng-show="mostrar_evaluacion_completa || visible(tratamientos.acetazolamida)">
+      <label> Acetazolamida</label>
+      <div class="alert alert-success" ng-show='tratamientos.acetazolamida.recomendado(respuestas)'>Recomendado
+        <br/>
+        <div ng-show='tratamientos.acetazolamida.sinergias(respuestas) > 0'>
+            Sirve para tratar las siguientes condiciones concomitantes: 
+            <ul>
+                <li ng-show='respuestas.edema'>Edemas por causa medicamentosa o insuficiencia cardiaca.</li>
+                <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
+                <li ng-show='respuestas.glaucoma'>Glaucoma crónico de cualquier clase.</li>
+            </ul>
+        </div>
+      </div>
+      <div class="alert alert-warning" ng-show='tratamientos.acetazolamida.noRecomendado(respuestas)'>
+        No recomendado por:
+        <ul>
+          <li ng-show='respuestas.cardiopatia'>Cardiopatia</li>
+          <li ng-show='respuestas.insuficiencia_heptica'>Debe realizarse un especial control clínico en pacientes con insuficiencia hepática.</li>
+          <li ng-show='respuestas.diabetes'>Precisa especial control clínico en pacientes con diabetes.</li>
+          <li ng-show='respuestas.insuficiencia_renal'>Precisa especial control clínico en pacientes con insuficiencia renal.</li>
+          <li ng-show='respuestas.gota__hiperuricemia'>Precisa especial control clínico en pacientes con gota o hiperuricemia.</li>
+          <li ng-show='respuestas.clculos_urinarios'>Precisa especial control clínico en pacientes con historia previa de cálculos urinarios.</li>
+          <li ng-show="respuestas.farma_carbamazepina">Posible acumulación orgánica de carbamazepina.</li>
+          <li ng-show="respuestas.farma_eslicarbazepina">Posible acumulación orgánica de eslicarbazepina.</li>
+          <li ng-show="respuestas.farma_fenitona">Puede potenciar la osteomalacia inducida por el empleo crónico de fenitoína.</li>
+          <li ng-show="respuestas.farma_fenobarbital">Puede potenciar la osteomalacia inducida por el empleo crónico de fenobarbital.</li>
+          <li ng-show="respuestas.farma_primidona">Puede potenciar la osteomalacia inducida por el empleo crónico de primidona.</li>
+          <li ng-show="respuestas.farma_pseudoefedrina">Posible acumulación orgánica de pseudoefedrina, pudiendo conducir a efectos tóxicos.</li>
+          <li ng-show="respuestas.farma_timololoftlmico">Posible potenciación de la toxicidad de timolol.</li>
+        </ul>
+        <br/>
+        <div ng-show='tratamientos.acetazolamida.sinergias(respuestas) > 0'>
+            Sirve para tratar las siguientes condiciones concomitantes: 
+            <ul>
+                <li ng-show='respuestas.edema'>Edemas por causa medicamentosa o insuficiencia cardiaca.</li>
+                <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
+                <li ng-show='respuestas.glaucoma'>Glaucoma crónico de cualquier clase.</li>
+            </ul>
+        </div>
+      </div>
+      <div class="alert alert-danger" ng-show='tratamientos.acetazolamida.prohibido(respuestas)'>
+        Terminalmente prohibido por:
+        <ul>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.alergia_acetazolamida'>Alergia o intolerancia al fármaco.</li>
+          <li ng-show='respuestas.acidosis_metablica'>Contraindicada en casos de acidosis metabólica hiperclorémica.</li>
+          <li ng-show='respuestas.depresin'>Contraindicada en caso de depresión.</li>
+          <li ng-show="respuestas.farma_cidoacetilsaliclico">Posible aumento de los niveles plasmáticos de acetazolamida con AAS. Riesgo de manifestaciones neurotóxicas.</li>
+          <li ng-show="respuestas.farma_ciclosporina">Posible aumento de los niveles plasmáticos de ciclosporina, con riesgo de nefrotoxicidad y neurotoxicidad.</li>
+          <li ng-show="respuestas.farma_digoxina">Posible aumento de la toxicidad digitálica por hipokaliemia.</li>
+          <li ng-show="respuestas.farma_lisdexanfetamina">Posible potenciación de los efectos anfetamínicos de lisdexanfetamina, pudiendo contribuir a la aparición de psicosis tóxica.</li>
+          <li ng-show="respuestas.farma_carbonatodelitio">Posible reducción de los niveles sanguíneos de litio.</li>
+          <li ng-show="respuestas.farma_metildigoxina">Posible aumento de la toxicidad digitálica por hipokaliemia.</li>
+          <li ng-show="respuestas.farma_topiramato">Posible mayor incidencia de nefrolitiasis de topiramato.</li>
+          <li ng-show="respuestas.farma_zonisamida">Posible mayor incidencia de nefrolitiasis de zonisamida.</li>
+        </ul>
+      </div>
+    </li>
+    <li ng-show="mostrar_evaluacion_completa || visible(tratamientos.amitriptilina)">
+      <label> Amitriptilina</label>
+      <div class="alert alert-success" ng-show='tratamientos.amitriptilina.recomendado(respuestas)'>Recomendado
+        <br/>
+        <div ng-show='tratamientos.amitriptilina.sinergias(respuestas) > 0'>
+            Sirve para tratar las siguientes condiciones concomitantes: 
+            <ul>
+                <li ng-show='respuestas.depresin'>Depresión.</li>
+                <li ng-show='respuestas.eneuresis_nocturna'>Eneuresis nocturna sin causa orgánica.</li>
+                <li ng-show='respuestas.dolor_neuroptico'>Dolor neuropático crónico.</li>
+            </ul>
+        </div>
+    </div>
+      <div class="alert alert-warning" ng-show='tratamientos.amitriptilina.noRecomendado(respuestas)'>
+        No recomendado por:
+        <ul>
+          <li ng-show='respuestas.cardiopatia'>Cardiopatia</li>
+          <li ng-show='respuestas.angina'>Puede desencadenar un infarto de miocardio, especialmente en pacientes con angina de pecho.</li>
+          <li ng-show='respuestas.arritmia_o_bloqueo_cardiaco'>Ha provocado arritmias, taquicardia sinusal y prolongación del tiempo de conducción y del intervalo QT, especialmente cuando se administra a dosis altas.</li>
+          <li ng-show='respuestas.insuficiencia_heptica'>Dado que se metaboliza principalmente en el hígado, deberá ajustarse la posología al grado funcional hepático.</li>
+          <li ng-show='respuestas.hipertiroidismo'>En casos de hipertiroidismo, tiene riesgo de toxicidad cardiovascular.</li>
+          <li ng-show='respuestas.epilepsia'>Puede disminuir el umbral convulsivo en epilépticos.</li>
+          <li ng-show='respuestas.glaucoma'>Puede aumentar la presión intraocular.</li>
+          <li ng-show='respuestas.esquizofrenia'>Puede aumentar el número de alteraciones psicóticas y los delirios paranoides pueden agravarse.</li>
+          <li ng-show='respuestas.trastorno_bipolar'>En caso de psicosis maniacodepresiva, los pacientes deprimidos pueden experimentar un cambio a la fase maniaca.</li>
+          <li ng-show='respuestas.tendencia_suicida'>El riesgo de suicidio puede aumentar en los primeros estadíos de la recuperación.</li>
+          <li ng-show='respuestas.hipertrofia_prosttica_o_uropata_obstructiva'>El efecto anticolinérgico puede causar agravamiento de cualquier enfermedad que produzca retención urinaria.</li>
+          <li ng-show='respuestas.estrenimiento'>Puede causar íleo paralítico, por lo que se debe tener cuidado en pacientes con estreñimiento crónico.</li>
+          <li ng-show='respuestas.fotosensibilidad'>No es aconsejable en pacientes que deseen una exposición prolongada al sol.</li>
+          <li ng-show='respuestas.feocromocitoma'>Puede desencadenar crisis hipertensivas en pacientes con feocromocitoma o neuroblastoma.</li>
+          <li ng-show="respuestas.farma_altizida">Posible incremento de la toxicidad cardiaca por uso simultáneo de altizida.</li>
+          <li ng-show="respuestas.farma_baclofeno">Posible potenciación de los efectos antiespásticos de baclofeno.</li>
+          <li ng-show="respuestas.farma_bendroflumetiazida">Posible incremento de la toxicidad cardiaca por uso simultáneo de bendroflumetiazida.</li>
+          <li ng-show="respuestas.farma_biperideno">Posible potenciación del efecto anticolinérgico por uso de biperideno.</li>
+          <li ng-show="respuestas.farma_bumetanida">Posible incremento de la toxicidad cardiaca por uso simultáneo de bumetanida.</li>
+          <li ng-show="respuestas.farma_bupropin">Posible acumulación de amitriptilina por uso simultáneo de bupropión.</li>
+          <li ng-show="respuestas.farma_citalopram">Posible acumulación de amitriptilina por uso simultáneo de citalopram.</li>
+          <li ng-show="respuestas.farma_clortalidona">Posible incremento de la toxicidad cardiaca por uso simultáneo de clortalidona.</li>
+          <li ng-show="respuestas.farma_diazepam">Posible potenciación del deterioro de la alerta mental por uso simultáneo de diazepam.</li>
+          <li ng-show="respuestas.farma_disulfiram">Posible acumulación de amitriptilina por uso simultáneo de disulfiram.</li>
+          <li ng-show="respuestas.farma_escopolamina">Posible potenciación del efecto anticolinérgico por uso de escopolamina.</li>
+          <li ng-show="respuestas.farma_estradiol">Posible acumulación de amitriptilina por uso simultáneo de estradiol.</li>
+          <li ng-show="respuestas.farma_estriol">Posible acumulación de amitriptilina por uso simultáneo de estriol.</li>
+          <li ng-show="respuestas.farma_etinilestradiol">Posible acumulación de amitriptilina por uso simultáneo de etinilestradiol.</li>
+          <li ng-show="respuestas.farma_fluconazol">Posible acumulación de amitriptilina por uso simultáneo de fluconazol.</li>
+          <li ng-show="respuestas.farma_furosemida">Posible potenciación de la toxicidad cardiaca por uso simultáneo de furosemida.</li>
+          <li ng-show="respuestas.farma_granisetrn">Posible aparición de arritmias cardiacas por uso de granisetrón.</li>
+          <li ng-show="respuestas.farma_hidroclorotiazida">Posible potenciación de la toxicidad cardiaca por uso simultáneo de hidroclorotiazida.</li>
+          <li ng-show="respuestas.farma_hiprico">Posible reducción del nivel plasmático de amitriptilina por la toma de hipérico.</li>
+          <li ng-show="respuestas.farma_indapamida">Posible incremento de la toxicidad cardiaca por uso simultáneo de indapamida.</li>
+          <li ng-show="respuestas.farma_josamicina">Posible acumulación de amitriptilina por uso simultáneo de josamicina.</li>
+          <li ng-show="respuestas.farma_levodopa">Posible aparición de crisis hipertensivas por uso simultáneo de levodopa.</li>
+          <li ng-show="respuestas.farma_morfina">Posible acumulación orgánica de morfina.</li>
+          <li ng-show="respuestas.farma_ondansetrn">Posible aparición de arritmias cardiacas por uso de ondansetrón.</li>
+          <li ng-show="respuestas.farma_palonosetrn">Posible aparición de arritmias cardiacas por uso de palonosetrón.</li>
+          <li ng-show="respuestas.farma_piretanida">Posible incremento de la toxicidad cardiaca por uso simultáneo de piretanida.</li>
+          <li ng-show="respuestas.farma_prociclinida">Posible potenciación del efecto anticolinércigo por uso simultáneo de prociclinida.</li>
+          <li ng-show="respuestas.farma_sertralina">Posible acumulación orgánica de amitriptilina por uso simultáneo de sertralina.</li>
+          <li ng-show="respuestas.farma_sulfacrato">Posible reducción de los niveles de amitriptilina por uso simultáneo de sulfacrato.</li>
+          <li ng-show="respuestas.farma_terbinafina">Posible potenciación del efecto anticolinérgico por uso simultáneo de terbinafina.</li>
+          <li ng-show="respuestas.farma_torasemida">Posible potenciación de la toxicidad cardiaca por uso simultáneo de torasemida.</li>
+          <li ng-show="respuestas.farma_trihexifenilo">Posible potenciación del efecto anticolinércigo por uso simultáneo de trihexifenilo.</li>
+          <li ng-show="respuestas.farma_xipamida">Posible incremento de la toxicidad cardiaca por uso simultáneo de xipamida.</li>
+          <li ng-show="respuestas.farma_escitalopram">Posible acumulación orgánica de amitriptilina por uso simultáneo de escitalopram.</li>
+          <li ng-show="respuestas.farma_fenilefrinanasal">Posible potenciación de los efectos cardiovasculares en caso de absorción sistémica de fenilefrina.</li>
+          <li ng-show="respuestas.farma_formoterol">Posible acción sobre el intervalo QT en caso de uso simultáneo de formoterol.</li>
+          <li ng-show="respuestas.farma_metildopa">Posible aparición de crisis hipertensivas por uso simultáneo de metildopa.</li>
+          <li ng-show="respuestas.farma_mirabegron">Posible aumento de las concentraciones plasámticas de los sustratos del CYP2D6 por uso de mirabegron.</li>
+          <li ng-show="respuestas.farma_nafazolinanasal">Posible potenciación de los efectos cardiovasculares en caso de absorción sistémica de nafazolina.</li>
+          <li ng-show="respuestas.farma_oximetazolinanasal">Posible potenciación de los efectos cardiovasculares en caso de absorción sistémica de oximetazolina.</li>
+          <li ng-show="respuestas.farma_nilotinib">Posible acción sobre el intervalo QT en caso de uso simultáneo de nilotinib.</li>
+          <li ng-show="respuestas.farma_paroxetina">Posible acumulación orgánica de amitriptilina por uso simultáneo de paroxetina.</li>
+          <li ng-show="respuestas.farma_ritonavir">Posible acumulación orgánica de amitriptilina por uso simultáneo de ritonavir.</li>
+          <li ng-show="respuestas.farma_tramazolinanasal">Posible potenciación de los efectos cardiovasculares en caso de absorción sistémica de tramazolina.</li>
+          <li ng-show="respuestas.farma_xilometazolinanasal">Posible potenciación de los efectos cardiovasculares en caso de absorción sistémica de xilometazolina.</li>
+          <li ng-show="respuestas.farma_estrgenosconjugados">Posible acumulación del antidepresivo en el organismo por uso de estrógenos.</li>
+        </ul>
+        <br/>
+        <div ng-show='tratamientos.amitriptilina.sinergias(respuestas) > 0'>
+            Sirve para tratar las siguientes condiciones concomitantes: 
+            <ul>
+                <li ng-show='respuestas.depresin'>Depresión.</li>
+                <li ng-show='respuestas.eneuresis_nocturna'>Eneuresis nocturna sin causa orgánica.</li>
+                <li ng-show='respuestas.dolor_neuroptico'>Dolor neuropático crónico.</li>
+            </ul>
+        </div>      </div>
+      <div class="alert alert-danger" ng-show='tratamientos.amitriptilina.prohibido(respuestas)'>
+        Terminalmente prohibido por:
+        <ul>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.alergia_amitriptilina'>Alergia o intolerancia al fármaco.</li>
+          <li ng-show='respuestas.infarto_de_miocardio'>Aumenta el riesgo de sufrir un bloqueo cardiaco en el periodo de recuperación de un infarto de miocardio.</li>
+          <li ng-show='respuestas.alcohol'>El paciente desea tomar bebidas alcohólicas durante el tratamiento.</li>
+          <li ng-show="respuestas.farma_adenosina">La administración junto con adenosina puede dar lugar a arritmias cardiacas graves.</li>
+          <li ng-show="respuestas.farma_trixidodearsnico">La administración conjunta de arsénico puede prolongar el intervalo QT.</li>
+          <li ng-show="respuestas.farma_atomoxetina">La administración conjunta de atomoxetina puede dar lugar a arritmias cardiacas graves.</li>
+          <li ng-show="respuestas.farma_atropina">Posible potenciación del efecto anticolinérgico de atropina.</li>
+          <li ng-show="respuestas.farma_carbamazepina">Posible disminución del efecto de amitriptilina por carbamazepina.</li>
+          <li ng-show="respuestas.farma_clonidina">Los antidepresivos tricíclicos pueden antagonizar la acción de clonidina.</li>
+          <li ng-show="respuestas.farma_clorpromacina">Posible sobreestimulación del SNC, con aparición de temblores o arritmias cardiacas por clorpromacina.</li>
+          <li ng-show="respuestas.farma_clozapina">Posible sobreestimulación del SNC, con aparición de temblores o arritmias cardiacas por clozapina.</li>
+          <li ng-show="respuestas.farma_droperidol">Posible sobreestimulación del SNC, con aparición de temblores o arritmias cardiacas por droperidol.</li>
+          <li ng-show="respuestas.farma_epinefrina">Posible potenciación de los efectos cardiovasculares por epinefrina.</li>
+          <li ng-show="respuestas.farma_eslicarbazepina">Posible disminución del efecto de amitriptilina por eslicarbazepina.</li>
+          <li ng-show="respuestas.farma_epinefrina">Posible potenciación de los efectos cardiovasculares por epinefrina.</li>
+          <li ng-show="respuestas.farma_fenilefrinanasal">Posible potenciación de los efectos cardiovasculares por fenilefrina nasal.</li>
+          <li ng-show="respuestas.farma_fenobarbital">Posible disminución del efecto de amitriptilina por fenobarbital.</li>
+          <li ng-show="respuestas.farma_flufenacina">Posible aparición de temblores y arritmias cardiacas por uso simultáneo de flufenacina.</li>
+          <li ng-show="respuestas.farma_fluoxetina">Posible acumulación de amitriptilina por uso simultáneo de fluoxetina.</li>
+          <li ng-show="respuestas.farma_fluvoxamina">Posible acumulación de amitriptilina por uso simultáneo con fluvoxamina.</li>
+          <li ng-show="respuestas.farma_haloperidol">Posible aparición de temblores y arritmias cardiacas por uso simultáneo de haloperidol.</li>
+          <li ng-show="respuestas.farma_levomepromazina">Posible aparición de temblores y arritmias cardiacas por uso simultáneo de levomepromazina.</li>
+          <li ng-show="respuestas.farma_linezolid">Posible aparición de síndrome serotoninérgico por uso de linezolid.</li>
+          <li ng-show="respuestas.farma_carbonatodelitio">Posible aparición de neurotoxicidad, síndrome serotoninérgico o síndrome neuroléptico maligno por uso simultáneo de litio.</li>
+          <li ng-show="respuestas.farma_moclobemida">Posible aparición de síndrome serotoninérgico por uso simultáneo de moclobemida.</li>
+          <li ng-show="respuestas.farma_norepinefrina">Posible potenciación de los efectos cardiovasculares de norepinefrina.</li>
+          <li ng-show="respuestas.farma_perfenazina">Posible aparición de temblores y arritmias cardiacas por uso simultáneo de perfenazina.</li>
+          <li ng-show="respuestas.farma_periciazina">Posible aparición de temblores y arritmias cardiacas por uso simultáneo de periciazina.</li>
+          <li ng-show="respuestas.farma_pimozida">Posible prolongación del intervalo QT por uso simultáneo de pimozida.</li>
+          <li ng-show="respuestas.farma_rasagilina">Posible aparición de síndrome serotoninérgico por uso simultáneo de rasagilina.</li>
+          <li ng-show="respuestas.farma_saquinavir">Posible acumulación de amitriptilina por saquinavir.</li>
+          <li ng-show="respuestas.farma_selegilina">Posible aparición de síndrome serotoninérgico por uso simultáneo de selegilina.</li>
+          <li ng-show="respuestas.farma_sotalol">Posible prolongación del intervalo QT por uso simultáneo de sotalol.</li>
+          <li ng-show="respuestas.farma_sunitinib">Posible prolongación del intervalo QT por uso simultáneo de sunitinib.</li>
+          <li ng-show="respuestas.farma_tacrolimus">Posible prolongación del intervalo QT por uso simultáneo de tacrolimus.</li>
+          <li ng-show="respuestas.farma_tranilcipromina">Posible aparición de síndrome serotoninérgico por uso simultáneo de tranilcipromina.</li>
+          <li ng-show="respuestas.farma_valproato">Posible acumulación de amitriptilina por uso simultáneo de valproato.</li>
+          <li ng-show="respuestas.farma_valpromida">Posible acumulación de amitriptilina por uso simultáneo de valpromida.</li>      
+        </ul>
+      </div>
+    </li>
+    <li ng-show="mostrar_evaluacion_completa || visible(tratamientos.flunarizina)">
+      <label> Flunarizina</label>
+      <div class="alert alert-success" ng-show='tratamientos.flunarizina.recomendado(respuestas)'>Recomendado
+        <br/>
+    </div>
+      <div class="alert alert-warning" ng-show='tratamientos.flunarizina.noRecomendado(respuestas)'>
+        No recomendado por:
+        <ul>
+          <li ng-show='respuestas.cardiopatia'>Cardiopatia</li>
+          <li ng-show='respuestas.insuficiencia_heptica'>Dado que se metaboliza principalmente en el hígado, deberá ajustarse la posología al grado funcional hepático.</li>
+          <li ng-show="respuestas.farma_carbamazepina">Posible pérdida de eficacia de flunarizina por uso simultáneo de carbamazepina.</li>
+          <li ng-show="respuestas.farma_ciproterona">Aumento del riesgo de galactorrea por uso simultáneo de ciproterona.</li>
+          <li ng-show="respuestas.farma_eslicarbazepina">Posible pérdida de eficacia de flunarizina por uso simultáneo de eslicarbazepina.</li>
+          <li ng-show="respuestas.farma_fenitona">Posible pérdida de eficacia de flunarizina por uso simultáneo de fenitoína.</li>
+          <li ng-show="respuestas.farma_valproato">Posible pérdida de eficacia de flunarizina por uso simultáneo de valproato.</li>
+        </ul>
+        <br/>
+      </div>
+      <div class="alert alert-danger" ng-show='tratamientos.flunarizina.prohibido(respuestas)'>
+        Terminalmente prohibido por:
+        <ul>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.alergia_flunarizina'>Alergia o intolerancia al fármaco.</li>
+          <li ng-show='respuestas.parkinson'>Puede producir síntomas extrapiramidales parkinsonianos durante tratamientos prolongados, especialmente en ancianos.</li>
+          <li ng-show='respuestas.depresin'>No se aconseja el uso en caso de depresión. Puede precipitar, además, la aparición de depresión.</li>
+          <li ng-show='respuestas.alcohol'>El paciente desea tomar bebidas alcohólicas durante el tratamiento.</li>
+          <li ng-show="respuestas.farma_etinilestradiol">Aumento del riesgo de galactorrea por uso simultáneo de etinilestradiol.</li>
+        </ul>
+      </div>
+    </li>
+    <li ng-show="mostrar_evaluacion_completa || visible(tratamientos.propranolol)">
+      <label> Propranolol</label>
+      <div class="alert alert-success" ng-show='tratamientos.propranolol.recomendado(respuestas)'>Recomendado
+        <br/>
+        <div ng-show='tratamientos.propranolol.sinergias(respuestas) > 0'>
+            Sirve para tratar las siguientes condiciones concomitantes: 
+            <ul>
+                <li ng-show='respuestas.angina'>Anginas de pecho de repetición.</li>
+                <li ng-show='respuestas.ansiedad'>Ansiedad con taquicardias y temblores.</li>
+                <li ng-show='respuestas.arritmia_cardiaca'>Arritmia cardiaca suceptible de mejora con betabloqueantes.</li>
+                <li ng-show='respuestas.hipertensin_arterial'>Hipertensión arterial.</li>
+                <li ng-show='respuestas.miocardiopata_hipertrfica'>Miocardiopatía hipertrófica obstructiva.</li>
+                <li ng-show='respuestas.temblor_esencial'>Temblor esencial.</li>
+                <li ng-show='respuestas.tirotoxicosis'>Tirotoxicosis.</li>
+                <li ng-show='respuestas.varices_esofgicas'>Varices esofágicas.</li>
+            </ul>
+        </div>
+    </div>
+      <div class="alert alert-warning" ng-show='tratamientos.propranolol.noRecomendado(respuestas)'>
+        No recomendado por:
+        <ul>
+          <li ng-show='respuestas.cardiopatia'>Cardiopatia</li>
+          <li ng-show='respuestas.arteriopata_perifrica'>Puede disminuir la circulación periférica.</li>
+          <li ng-show='respuestas.psoriasis'>Puede exacerbar la psoriasis.</li>
+          <li ng-show='respuestas.insuficiencia_heptica'>Iniciar el tratamiento con dosis bajas. En hipertensión portal, la función hepática puede deteriorarse y desarrollarse encefalopatía hepática.</li>
+          <li ng-show='respuestas.hipertiroidismo'>El bloqueo betaadrenérgico tiende a revertir con rapidez los síntomas de hipertiroidismo.</li>
+          <li ng-show='respuestas.diabetes'>Puede enmascarar los síntomas de una crisis de hipoglucemia.</li>
+          <li ng-show='respuestas.insuficiencia_renal'>Se excreta mayoritariamente por vía renal; debe ajustarse la dosis de acuerdo al grado funcional renal.</li>
+          <li ng-show='respuestas.miastenia_gravis'>Puede potenciar un estado miasténico, visión doble y debilidad muscular.</li>
+          <li ng-show='respuestas.depresin'>La asociación de betabloqueantes con depresión no ha sido totalmente establecida, pero se recomienda precaución en estos pacientes.</li>
+          <li ng-show='respuestas.feocromocitoma'>Existe riesgo de hipertensión en caso de feocromocitoma si no se alcanza antes un bloqueo alfaadrenérgico eficaz.</li>
+          <li ng-show="respuestas.farma_abiraterona">Posible aumento de las concentraciones plasmáticas del sustrato del CYP2D6 por abiraterona.</li>
+          <li ng-show="respuestas.farma_aceclofenaco">Posible reducción del efecto antihipertensivo por aceclofenaco.</li>
+          <li ng-show="respuestas.farma_acenocumarol">Posible potenciación del efecto anticoagulante de acenocumarol.</li>
+          <li ng-show="respuestas.farma_cidoacetilsaliclico">Posible reducción del efecto antihipertensivo por uso de ácido acetilsalicílico.</li>
+          <li ng-show="respuestas.farma_amiodarona">Posible aparición de bradicardia, asistolia o fibrilación ventricular por uso de amiodarona.</li>
+          <li ng-show="respuestas.farma_cidoascrbico">Posible reducción de los niveles de propranolol por ácido ascórbico.</li>
+          <li ng-show="respuestas.farma_celecoxib">Posible reducción del efecto antihipertensivo por celecoxib.</li>
+          <li ng-show="respuestas.farma_colestipol">Posible reducción de la absorción del betabloqueante por colestipol.</li>
+          <li ng-show="respuestas.farma_colestiramina">Posible reducción de la absorción del betabloqueante por colestiramina.</li>
+          <li ng-show="respuestas.farma_dexibuprofeno">Posible reducción del efecto antihipertensivo por dexibuprofeno.</li>
+          <li ng-show="respuestas.farma_dexketoprofeno">Posible reducción del efecto antihipertensivo por dexketoprofeno.</li>
+          <li ng-show="respuestas.farma_diazepam">Posible potenciación del efecto de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_diclofenaco">Posible reducción del efecto antihipertensivo por uso de diclofenaco.</li>
+          <li ng-show="respuestas.farma_diltiazem">Puede darse una importante depresión miocárdica por diltiazem.</li>
+          <li ng-show="respuestas.farma_dronedarona">Posible riesgo de bradicardia por dronedarona.</li>
+          <li ng-show="respuestas.farma_ergotamina">Posible potenciación de efectos vasoconstrictores de la ergotamina.</li>
+          <li ng-show="respuestas.farma_estradiol">Posible acumulación del betabloqueante por uso de estrógenos.</li>
+          <li ng-show="respuestas.farma_estriol">Posible acumulación del betabloqueante por uso de estrógenos.</li>
+          <li ng-show="respuestas.farma_estrgenosconjugados">Posible acumulación del betabloqueante por uso de estrógenos.</li>
+          <li ng-show="respuestas.farma_etinilestradiol">Posible acumulación del betabloqueante por uso de estrógenos.</li>
+          <li ng-show="respuestas.farma_etoricoxib">Posible reducción del efecto antihipertensivo por uso de etoricoxib.</li>
+          <li ng-show="respuestas.farma_fenobarbital">Peligro de crisis hipertensiva por uso de fenobarbital.</li>
+          <li ng-show="respuestas.farma_flecainida">Posible acumulación de fármacos y efectos tóxicos por uso de flecainida.</li>
+          <li ng-show="respuestas.farma_flurbiprofeno">Posible reducción del efecto antihipertensivo por uso de flurbiprofeno.</li>
+          <li ng-show="respuestas.farma_fluvoxamina">Posible acumulación de fármacos y efectos tóxicos de fluvoxamina.</li>
+          <li ng-show="respuestas.farma_heparina">Posible aumento de la fracción libre del betabloqueante por uso de heparina.</li>
+          <li ng-show="respuestas.farma_hidralazina">Posible aumento de la biodisponibilidad oral de los betabloqueantes por uso de hidralazina.</li>
+          <li ng-show="respuestas.farma_ibuprofeno">Posible reducción del efecto antihipertensivo por uso de ibuprofeno.</li>
+          <li ng-show="respuestas.farma_imipramina">Posible acumulación orgánica del antidepresivo por uso de imipramina.</li>
+          <li ng-show="respuestas.farma_indometacina">Posible reducción del efecto antihipertensivo por uso de indometacina.</li>
+          <li ng-show="respuestas.farma_isonixina">Posible reducción del efecto antihipertensivo por uso de isonixina.</li>
+          <li ng-show="respuestas.farma_ketoprofeno">Posible reducción del efecto antihipertensivo por uso de ketoprofeno.</li>
+          <li ng-show="respuestas.farma_ketorolaco">Posible reducción del efecto antihipertensivo por uso de ketorolaco.</li>
+          <li ng-show="respuestas.farma_lornoxicam">Posible reducción del efecto antihipertensivo por lornoxicam.</li>
+          <li ng-show="respuestas.farma_maprotilina">Posible acumulación orgánica del antidepresivo por maprotilina.</li>
+          <li ng-show="respuestas.farma_cidomefenmico">Posible reducción del efecto antihipertensivo por ácido mefenámico.</li>
+          <li ng-show="respuestas.farma_meloxicam">Posible reducción del efecto antihipertensivo por meloxicam.</li>
+          <li ng-show="respuestas.farma_nabumetona">Posible reducción del efecto antihipertensivo por nabumetona.</li>
+          <li ng-show="respuestas.farma_naproxeno">Posible reducción del efecto antihipertensivo por naproxeno.</li>
+          <li ng-show="respuestas.farma_neostigmina">Posible riesgo de bradicardia e hipotensión por neostigmina.</li>
+          <li ng-show="respuestas.farma_nifedipino">Complicaciones cardiacas en relación con el tratamiento con nifedipino.</li>
+          <li ng-show="respuestas.farma_cidoniflmico">Posible reducción del efecto antihipertensivo por ácido niflúmico.</li>
+          <li ng-show="respuestas.farma_paracetamol">Posible acumulación del paracetamol.</li>
+          <li ng-show="respuestas.farma_parecoxib">Posible reducción del efecto antihipertensivo por parecoxib.</li>
+          <li ng-show="respuestas.farma_bromurodepiridostigmina">Posible potenciación de la toxicidad con bradicardia e hipotensión por uso de piridostigmina.</li>
+          <li ng-show="respuestas.farma_piroxicam">Posible reducción del efecto antihipertensivo por piroxicam.</li>
+          <li ng-show="respuestas.farma_promestrieno">Posible acumulación de betabloqueantes por uso de promestireno.</li>
+          <li ng-show="respuestas.farma_propafenona">Posible acumulación de betabloqueantes por propafenona.</li>
+          <li ng-show="respuestas.farma_rifampicina">Posible pérdida terapéutica de los betabloqueantes por uso de rifampicina.</li>
+          <li ng-show="respuestas.farma_rizatriptn">Posible acumulación orgánica del antimigrañoso.</li>
+          <li ng-show="respuestas.farma_clorurodesuxametonio">Posible aumento de la duración y efecto del bloqueante neuromuscular.</li>
+          <li ng-show="respuestas.farma_tenoxicam">Posible reducción del efecto antihipertensivo por tenoxicam.</li>
+          <li ng-show="respuestas.farma_teofilina">Posible potenciación de los efectos broncodilatadores de la teofilina.</li>
+          <li ng-show="respuestas.farma_terbinafina">Acumulación orgánica de susratos mayores del CYP2D6 de terbinafina.</li>
+          <li ng-show="respuestas.farma_tiopentalsdico">Posible disminución de la acción de los betabloqueantes por uso de tiopental.</li>
+          <li ng-show="respuestas.farma_verapamilo">Puede originarse una importante depresión miocárdica por verapamilo.</li>
+          <li ng-show="respuestas.farma_warfarina">Posible potenciación del efecto anticoagulante de warfarina.</li>
+          <li ng-show="respuestas.farma_acarbosa">Pueden originarse hipoglucemias por uso de acarbosa.</li>
+          <li ng-show="respuestas.farma_agomelatina">Posible acumulación de agomelatina.</li>
+          <li ng-show="respuestas.farma_albiglutida">Pueden originarse hipoglucemias por uso de albiglutida.</li>
+          <li ng-show="respuestas.farma_algeldrato">Posible disminución de la absorción gastrointestinal de los betabloqueantes por uso de algeldrato.</li>
+          <li ng-show="respuestas.farma_almasilato">Posible disminución de la absorción gastrointestinal de los betabloqueantes por uso de almasilato.</li>
+          <li ng-show="respuestas.farma_alprostadilo">Posible aumento de los efectos hipotensores por uso de alprostadilo.</li>
+          <li ng-show="respuestas.farma_canaglifozina">Pueden originarse hipoglucemias por la canaglifozina.</li>
+          <li ng-show="respuestas.farma_citalopram">Posible aumento de las concentraciones plasmáticas de citalopram.</li>
+          <li ng-show="respuestas.farma_codena">Posible potenciación de la toxicidad de los analgésicos narcóticos.</li>
+          <li ng-show="respuestas.farma_dapaglifozina">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_empaglifozina">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_escitalopram">Posible aumento de las concentraciones plasmáticas de escitalopram.</li>
+          <li ng-show="respuestas.farma_exenatida">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_fampridina">Posible alteración de la excrección renal de fampridina.</li>
+          <li ng-show="respuestas.farma_fenilefrinanasal">Puede originarse una importante elevación de la presión arterial por uso de vasoconstrictores nasales.</li>
+          <li ng-show="respuestas.farma_fentanilo">Posible potenciación de la toxicidad de los analgésicos narcóticos.</li>
+          <li ng-show="respuestas.farma_galantamina">Posible enlentecimiento excesivo del ritmo cardiaco por galantamina.</li>
+          <li ng-show="respuestas.farma_glibenclamida">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_gliclazida">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_glimepirida">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_glipizida">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_glisentida">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_gomaguar">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_haloperidol">Posible potenciación de los efectos de haloperidol y propranolol.</li>
+          <li ng-show="respuestas.farma_imatinib">Posible acumulación de los sustratos mayores del CYP2D6 por uso de imatinib.</li>
+          <li ng-show="respuestas.farma_insulina">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_linagliptina">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_liraglutida">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_lixisenatida">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_carbonatodemagnesio">Alteración de la absorción gastrointestinal de propranolol por uso de magnesio.</li>
+          <li ng-show="respuestas.farma_hidrxidodemagnesio">Alteración de la absorción gastrointestinal de propranolol por uso de magnesio.</li>
+          <li ng-show="respuestas.farma_xidodemagnesio">Alteración de la absorción gastrointestinal de propranolol por uso de magnesio.</li>
+          <li ng-show="respuestas.farma_trisilicatodemagnesio">Alteración de la absorción gastrointestinal de propranolol por uso de magnesio.</li>
+          <li ng-show="respuestas.farma_metadona">Posible potenciación de la toxicidad de los analgésicos narcóticos.</li>
+          <li ng-show="respuestas.farma_metformina">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_miglitol">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_modafilino">Posible aumento de las concentraciones plasmáticas de modafilino.</li>
+          <li ng-show="respuestas.farma_morfina">Posible potenciación de la toxicidad de los analgésicos narcóticos.</li>
+          <li ng-show="respuestas.farma_nafazolinanasal">Posible elevación de la tensión arterial por uso de vasoconstrictores nasales.</li>
+          <li ng-show="respuestas.farma_nateglinida">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_nisoldipino">Posible aumento de los niveles séricos de betabloqueante por uso de nisoldipino.</li>
+          <li ng-show="respuestas.farma_opio">Posible potenciación de la toxicidad de los analgésicos narcóticos.</li>
+          <li ng-show="respuestas.farma_oximetazolinanasal">Posible elevación de la tensión arterial por uso de vasoconstrictores nasales.</li>
+          <li ng-show="respuestas.farma_petidina">Posible potenciación de la toxicidad de los analgésicos narcóticos.</li>
+          <li ng-show="respuestas.farma_pioglitazona">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_pixantrona">Posible aumento de las concentraciones plasmáticas de pixantrona.</li>
+          <li ng-show="respuestas.farma_ranolazina">Posible acumulación de los sustratos mayores del CYP2D6 por uso de ranolazina.</li>
+          <li ng-show="respuestas.farma_repaglinida">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_saxagliptina">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_sitagliptina">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_tramazolinanasal">Puede originarse una importante elevación de la tensión arterial por uso de tramazolina.</li>
+          <li ng-show="respuestas.farma_vemurafenib">Posible aumento de las concentraciones plasmáticas del CYP1A2 por uso de vemurafenib.</li>
+          <li ng-show="respuestas.farma_vildagliptina">Pueden originarse hipoglucemias por uso de antidiabéticos orales.</li>
+          <li ng-show="respuestas.farma_xilometazolinanasal">Posible elevación de la tensión arterial por uso de vasoconstrictores nasales.</li>
+        </ul>
+        <br/>
+        <div ng-show='tratamientos.propranolol.sinergias(respuestas) > 0'>
+            Sirve para tratar las siguientes condiciones concomitantes: 
+            <ul>
+                <li ng-show='respuestas.angina'>Anginas de pecho de repetición.</li>
+                <li ng-show='respuestas.ansiedad'>Ansiedad con taquicardias y temblores.</li>
+                <li ng-show='respuestas.arritmia_cardiaca'>Arritmia cardiaca suceptible de mejora con betabloqueantes.</li>
+                <li ng-show='respuestas.hipertensin_arterial'>Hipertensión arterial.</li>
+                <li ng-show='respuestas.miocardiopata_hipertrfica'>Miocardiopatía hipertrófica obstructiva.</li>
+                <li ng-show='respuestas.temblor_esencial'>Temblor esencial.</li>
+                <li ng-show='respuestas.tirotoxicosis'>Tirotoxicosis.</li>
+                <li ng-show='respuestas.varices_esofgicas'>Varices esofágicas.</li>
+            </ul>
+        </div>  
+            </div>
+      <div class="alert alert-danger" ng-show='tratamientos.propranolol.prohibido(respuestas)'>
+        Terminalmente prohibido por:
+        <ul>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.alergia_propranolol'>Alergia o intolerancia al fármaco.</li>
+          <li ng-show='respuestas.hipotension'>Contraindicado en pacientes con tensión arterial sistólica inferior a 100 mmHg.</li>
+          <li ng-show='respuestas.bradicardia'>Contraindicado en pacientes con frecuencia cardiaca inferior a 50 lpm.</li>
+          <li ng-show='respuestas.arritmia_o_bloqueo_cardiaco'>Contraindicado en pacientes con bloqueo cardiaco de segundo o tercer grado debido a su efecto negativo en el tiempo de conducción.</li>
+          <li ng-show='respuestas.acidosis_metablica'>En caso de acidosis metabólica, el bloqueo de los receptores beta puede provocar una disminución del tono simpático necesario para conservar las funciones vitales.</li>
+          <li ng-show='respuestas.asma'>El bloqueo de los receptores beta 2 adrenérgicos por propranolol puede precipitar episodios de broncospasmo empeorando la enfermedad.</li>
+          <li ng-show="respuestas.farma_bambuterol">Posible reducción del efecto de los broncodilatadores beta 2 adrenérgicos.</li>
+          <li ng-show="respuestas.farma_clonidina">La administración conjunta con clonidina puede originar un aumento de la presión arterial.</li>
+          <li ng-show="respuestas.farma_clorazepatodipotsico">Posible potenciación del efecto de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_clordiacepxido">Posible potenciación del efecto de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_clorpromacina">Posible aumento de los niveles plasmáticos de propranolol y clorpromacina.</li>
+          <li ng-show="respuestas.farma_disopiramida">Posible bradicardia e hipotensión severa por administración conjunta de disopiramida.</li>
+          <li ng-show="respuestas.farma_dopamina">Posible elevación de la tensión arterial, bradicardia y arritmias por dopamina.</li>
+          <li ng-show="respuestas.farma_epinefrina">Posible elevación de la tensión arterial, bradicardia y arritmias por epinefrina.</li>
+          <li ng-show="respuestas.farma_fenilefrinanasal">Posible elevación de la tensión arterial, bradicardia y arritmias por fenilefrina.</li>
+          <li ng-show="respuestas.farma_fingolimod">Riesgo de disminución excesiva de frecuencia cardiaca por fingolimod.</li>
+          <li ng-show="respuestas.farma_fluoxetina">Riesgo de bloqueo cardiaco completo por fluoxetina.</li>
+          <li ng-show="respuestas.farma_formoterol">Posible reducción del efecto de los broncodilatadores beta 2 adrenérgicos.</li>
+          <li ng-show="respuestas.farma_hidroclorotiazida">Posible incremento de los niveles de glucosa en sangre por hidroclorotiazida.</li>
+          <li ng-show="respuestas.farma_indacaterol">Puede dar lugar a broncoespasmo.</li>
+          <li ng-show="respuestas.farma_lidocana">Riesgo de intoxicación por lidocaína.</li>
+          <li ng-show="respuestas.farma_medazepam">Posible potenciación del efecto y la toxicidad del medazepam.</li>
+          <li ng-show="respuestas.farma_metacolina">Potenciación de los efectos broncoconstrictores de la metacolina.</li>
+          <li ng-show="respuestas.farma_nimodipino">Posible reducción de los niveles séricos de nimodipino.</li>
+          <li ng-show="respuestas.farma_olodaterol">Puede dar lugar a broncoespasmos por uso de olodaterol.</li>
+          <li ng-show="respuestas.farma_pinazepam">Posible potenciación del efecto de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_prazosina">Posible aumento de hipotensión ortostática por prazosina.</li>
+          <li ng-show="respuestas.farma_procainamida">Posible aumento de los niveles plasmáticos de procainamida.</li>
+          <li ng-show="respuestas.farma_salbutamol">Posible reducción del efecto de los broncodilatadores beta 2 adrenérgicos.</li>
+          <li ng-show="respuestas.farma_salmeterol">Posible reducción del efecto de los broncodilatadores beta 2 adrenérgicos.</li>
+          <li ng-show="respuestas.farma_terbutalina">Posible reducción del efecto de los broncodilatadores beta 2 adrenérgicos.</li>
+          <li ng-show="respuestas.farma_vilanterol">Puede dar lugar a broncospasmo por uso de vilanterol.</li>
+        </ul>
+      </div>
+    </li>
+    <li ng-show="mostrar_evaluacion_completa || visible(tratamientos.topiramato)">
+      <label> Topiramato</label>
+      <div class="alert alert-success" ng-show='tratamientos.topiramato.recomendado(respuestas)'>Recomendado
+        <br/>
+        <div ng-show='tratamientos.topiramato.sinergias(respuestas) > 0'>
+            Sirve para tratar las siguientes condiciones concomitantes: 
+            <ul>
+                <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
+            </ul>
+        </div></div>
+      <div class="alert alert-warning" ng-show='tratamientos.topiramato.noRecomendado(respuestas)'>
+        No recomendado por:
+        <ul>
+          <li ng-show='respuestas.cardiopatia'>Cardiopatia</li>
+           <li ng-show='respuestas.fotosensibilidad'>Se han observado reacciones de fotosensibilidad durante el tratamiento.</li>
+           <li ng-show='respuestas.insuficiencia_heptica'>Puede verse disminuido su aclaramiento.</li>
+           <li ng-show='respuestas.acidosis_metablica'>Otras enfermedades o tratamientos que predispongan a la acidosis metabólica pueden tener efectos aditivos respecto a la reducción del bicarbonato causada.</li>
+           <li ng-show='respuestas.insuficiencia_renal'>Se excreta mayoritariamente con la orina de forma inalterada, por lo que podría incrementarse su toxicidad.</li>
+           <li ng-show='respuestas.glaucoma'>Se ha descrito que puede causar miopía aguda con glaucoma secundario de ángulo cerrado.</li>
+           <li ng-show='respuestas.tendencia_suicida'>Se han descrito intentos suicidas en relación con la administración.</li>
+           <li ng-show='respuestas.depresin'>Se han comunicado episodios depresivos en relación con la administración.</li>
+           <li ng-show='respuestas.alteraciones_cognitivas'>Es necesario precaución en pacientes que presentan alteraciones cognitivas o de la conducta.</li>
+           <li ng-show='respuestas.clculos_urinarios'>Existe aumento del riesgo de formación de cálculos renales durante la administración.</li>
+           <li ng-show="respuestas.farma_carbamazepina">Reducción de los niveles de topiramato por uso de carbamazepina.</li>
+          <li ng-show="respuestas.farma_digoxina">Reducción de los niveles de digoxina.</li>
+          <li ng-show="respuestas.farma_eslicarbazepina">Reducción de los niveles de topiramato por uso de eslicarbazepina.</li>
+          <li ng-show="respuestas.farma_etinilestradiol">Reducción de los niveles del estrógeno y posible pérdida de efectividad.</li>
+          <li ng-show="respuestas.farma_fenitona">Reducción de los niveles de topiramato por uso de fenitoína.</li>
+          <li ng-show="respuestas.farma_fenobarbital">Reducción de los niveles de topiramato por uso de fenobarbital.</li>
+          <li ng-show="respuestas.farma_glibenclamida">Reducción de los niveles del antidiabético.</li>
+          <li ng-show="respuestas.farma_hidroclorotiazida">Reducción de los niveles de topiramato por uso de hidroclorotiazida.</li>
+          <li ng-show="respuestas.farma_carbonatodelitio">Aumento de los niveles de litio.</li>
+          <li ng-show="respuestas.farma_metformina">Aumento de los niveles de metformina.</li>
+          <li ng-show="respuestas.farma_pioglitazona">Reducción de los niveles de pioglitazona.</li>
+          <li ng-show="respuestas.farma_valproato">Reducción de los niveles de topiramato por uso de valproato.</li>
+          <li ng-show="respuestas.farma_primidona">Reducción de los niveles de topiramato por uso de primidona.</li>
+        </ul>
+        <br/>
+        <div ng-show='tratamientos.topiramato.sinergias(respuestas) > 0'>
+            Sirve para tratar las siguientes condiciones concomitantes: 
+            <ul>
+                <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
+            </ul>
+        </div>
+      </div>
+      <div class="alert alert-danger" ng-show='tratamientos.topiramato.prohibido(respuestas)'>
+        Terminalmente prohibido por:
+        <ul>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.alergia_topiramato'>Alergia o intolerancia al fármaco.</li>
+          <li ng-show='respuestas.alcohol'>El paciente desea tomar bebidas alcohólicas durante el tratamiento.</li>
+          <li ng-show="respuestas.farma_acetazolamida">Mayor incidencia de nefrolitiasis por acetazolamida.</li>
+          <li ng-show="respuestas.farma_cidoascrbico">Mayor incidencia de nefrolitiasis por ácido ascórbico.</li>
+          <li ng-show="respuestas.farma_carbonatodecalcio">Mayor incidencia de nefrolitiasis por carbonato de calcio.</li>
+          <li ng-show="respuestas.farma_clorurodecalcio">Mayor incidencia de nefrolitiasis por cloruro de calcio.</li>
+          <li ng-show="respuestas.farma_fosfatodecalcio">Mayor incidencia de nefrolitiasis por fostato de calcio.</li>
+          <li ng-show="respuestas.farma_lactatodecalcio">Mayor incidencia de nefrolitiasis por lactato de calcio.</li>
+          <li ng-show="respuestas.farma_pidolatodecalcio">Mayor incidencia de nefrolitiasis por pidolato de calcio.</li>
+          <li ng-show="respuestas.farma_clopidogrel">Posible disminución de la actividad antiagregante de clopidogrel.</li>
+          <li ng-show="respuestas.farma_gluconatodecalcio">Mayor incidencia de nefrolitiasis de gluconato de calcio.</li>
+          <li ng-show="respuestas.farma_saquinavir">Mayor incidencia de nefrolitiasis de saquinavir.</li>
+          <li ng-show="respuestas.farma_triamtereno">Mayor incidencia de nefrolitiasis de triamtereno.</li>
+          <li ng-show="respuestas.farma_zonisamida">Mayor incidencia de nefrolitiasis de zonisamida.</li>
+        </ul>
+      </div>
+    </li>
+    <li ng-show="mostrar_evaluacion_completa || visible(tratamientos.valproato)">
+      <label> Valproato</label>
+      <div class="alert alert-success" ng-show='tratamientos.valproato.recomendado(respuestas)'>Recomendado
+        <br/>
+        <div ng-show='tratamientos.valproato.sinergias(respuestas) > 0'>
+            Sirve para tratar las siguientes condiciones concomitantes:
+            <ul>
+                <li ng-show='respuestas.ausencias'>Ausencias.</li>
+                <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
+                <li ng-show='respuestas.tics'>Tics.</li>
+                <li ng-show='respuestas.trastorno_bipolar'>Trastorno bipolar.</li>
+            </ul>
+        </div>
+    </div>
+      <div class="alert alert-warning" ng-show='tratamientos.valproato.noRecomendado(respuestas)'>
+        No recomendado por:
+        <ul>
+          <li ng-show='respuestas.cardiopatia'>Cardiopatia</li>
+          <li ng-show='respuestas.porfiria'>Su metabolización hepática puede potenciar la síntesis de determinados enzimas como la ALA sintetasa, que puede dar lugar a un aumento de porfirinas, lo que provoca la exacerbación de la enfermedad.</li>
+          <li ng-show='respuestas.dolor_abdominal'>En muy raras ocasiones, se han documentado pancreatitis graves.</li>
+          <li ng-show='respuestas.pancreatitis'>En muy raras ocasiones, se han documentado pancreatitis graves.</li>
+          <li ng-show='respuestas.aplasia_medular'>Ocasionalmente produce depresión reversible de la médula ósea.</li>
+          <li ng-show='respuestas.insuficiencia_renal'>En caso de insuficiencia renal, pueden aumentar sus concentraciones séricas libres, debiendo disminuir la posología.</li>
+          <li ng-show='respuestas.tendencia_suicida'>La toma de antiepilépticos se ha asociado con tendencia suicida.</li>
+          <li ng-show='respuestas.depresin'>Durante la administración, es necesario vigilar al paciente acerca de la aparición o empeoramiento de estados de depresión.</li>
+          <li ng-show='respuestas.lupus'>Muy excepcionalmente se han registrado manifestaciones inmunológicas en pacientes con lupus.</li>
+          <li ng-show="respuestas.farma_acenocumarol">Posible aumento de la actividad anticoagulante.</li>
+          <li ng-show="respuestas.farma_cidoacetilsaliclico">Posible aumento de los niveles plasmáticos de valproato.</li>
+          <li ng-show="respuestas.farma_aciclovir">Posible reducción de los niveles séricos de valproato por aciclovir.</li>
+          <li ng-show="respuestas.farma_bleomicina">Posible reducción de los niveles séricos de valproato por bleomicina.</li>
+          <li ng-show="respuestas.farma_cisplatino">Posible reducción de los niveles séricos de valproato por cisplatino.</li>
+          <li ng-show="respuestas.farma_clonacepam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_clorpromacina">Posible aumento de niveles de valproato.</li>
+          <li ng-show="respuestas.farma_colestiramina">Posible reducción de la biodisponibilidad del valproato por colestiramina.</li>
+          <li ng-show="respuestas.farma_diazepam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_doxorubicina">Posible reducción de los niveles séricos de valproato por doxorubicina.</li>
+          <li ng-show="respuestas.farma_etosuximida">Riesgo de intoxicación por etosuximida.</li>
+          <li ng-show="respuestas.farma_flunarizina">Posible pérdida de la eficacia de flunarizina.</li>
+          <li ng-show="respuestas.farma_lamotrigina">Posible acumulación orgánica de lamotrigina.</li>
+          <li ng-show="respuestas.farma_lorazepam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_metotrexato">Posible reducción de la biodisponibilidad de valproato por metotrexato</li>
+          <li ng-show="respuestas.farma_naproxeno">Posible aumento de la concentración por uso de naproxeno.</li>
+          <li ng-show="respuestas.farma_orlistat">Posible aparición de convulsiones por orlistat.</li>
+          <li ng-show="respuestas.farma_oxcarbazepina">Posible reducción de los niveles de oxcarbazepina</li>
+          <li ng-show="respuestas.farma_oxibatosdico">Posible aumento de las concentraciones de oxibato y aumento de su toxicidad.</li>
+          <li ng-show="respuestas.farma_rufinamida">Posible acumulación orgánica de rufinamida.</li>
+          <li ng-show="respuestas.farma_topiramato">Posible reducción de los niveles de topiramato.</li>
+          <li ng-show="respuestas.farma_vinblastina">Posible reducción de la biodisponibilidad del anticonvulsivante.</li>
+          <li ng-show="respuestas.farma_warfarina">Posible aumento de la actividad anticoagulante.</li>
+          <li ng-show="respuestas.farma_zidovudina">Posible acumulación de zidovudina.</li>
+          <li ng-show="respuestas.farma_alprazolam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_bromazepam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_clorazepatodipotsico">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_clordiacepxido">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_clotiazepam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_fenilbutiratosdico">Posible riesgo de hiperamoniemia con fenilbutirato.</li>
+          <li ng-show="respuestas.farma_flurazepam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_lormetazepam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_medazepam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_oxazepam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_pinazepam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_triazolam">Posible potenciación de benzodiacepinas.</li>
+          <li ng-show="respuestas.farma_zolpidem">La administración junto con zolpidem puede inducir sonambulismo.</li>
+        </ul>
+        <br/>
+         <div ng-show='tratamientos.valproato.sinergias(respuestas) > 0'>
+            Sirve para tratar las siguientes condiciones concomitantes:
+            <ul>
+                <li ng-show='respuestas.ausencias'>Ausencias.</li>
+                <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
+                <li ng-show='respuestas.tics'>Tics.</li>
+                <li ng-show='respuestas.trastorno_bipolar'>Trastorno bipolar.</li>
+            </ul>
+        </div>
+      </div>
+      <div class="alert alert-danger" ng-show='tratamientos.valproato.prohibido(respuestas)'>
+        Terminalmente prohibido por:
+        <ul>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.alergia_valproato'>Alergia o intolerancia al fármaco.</li>
+          <li ng-show='respuestas.insuficiencia_heptica'>Alto riesgo de hepatotoxicidad en caso de insuficiencia hepática.</li>
+          <li ng-show='respuestas.hepatitis_aguda_o_crnica'>Alto riesgo de hepatotoxicidad en caso de hepatitis aguda o crónica.</li>
+          <li ng-show="respuestas.farma_amitriptilina">Posible acumulación de amitriptilina.</li>
+          <li ng-show="respuestas.farma_carbamazepina">Posible disminución de niveles de valproato.</li>
+          <li ng-show="respuestas.farma_clobazam">Posible potenciación de los efectos de clobazam.</li>
+          <li ng-show="respuestas.farma_clomipramina">Posible acumulación de clomipramina.</li>
+          <li ng-show="respuestas.farma_clozapina">Posible acumulación de clozapina.</li>
+          <li ng-show="respuestas.farma_ertapenem">Posible reducción de la concentración de valproato por ertapenem.</li>
+          <li ng-show="respuestas.farma_eslicarbazepina">Posible disminución de niveles de valproato.</li>
+          <li ng-show="respuestas.farma_fenitona">Posible disminución de niveles de fenitoína.</li>
+          <li ng-show="respuestas.farma_fenobarbital">Posible aumento de niveles de fenobarbital.</li>
+          <li ng-show="respuestas.farma_imipenem">Posible reducción de la concentración de valproato por imipenem.</li>
+          <li ng-show="respuestas.farma_meropenem">Posible reducción de la concentración de valproato por meropenem.</li>
+          <li ng-show="respuestas.farma_nimodipino">Posible incremento de los niveles plasmáticos de nimodipino.</li>
+          <li ng-show="respuestas.farma_nortriptilina">Posible acumulación de nortriptilina.</li>
+          <li ng-show="respuestas.farma_primidona">Posible aumento de niveles plasmáticos de primidona.</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <div ng-show='empateResueltoPorPrecio()'>
+    Se ha priorizado sobre otros medicamentos con el mismo nivel de recomendación por ser más económico.
+  </div>
+  <div ng-show='tratamientosAdecuados().length == 0'>
+    No se recomienda ningún tratamiento debido a las características del paciente.
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" ng-model="mostrar_evaluacion_completa"> Mostrar evaluacion completa
+    </label>
+  </div>
+</div>
+
