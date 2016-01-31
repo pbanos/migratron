@@ -5,6 +5,12 @@
 </div>
 
 <div class="row marketing">
+  <p class="alert alert-warning">
+    <strong>¡Atención!</strong> Esta herramienta ha sido desarrollada para el uso de profesionales sanitarios con experiencia en el tratamiento de la migraña vestibular. Actualmente se encuentra en fase beta y está siendo probada para su uso clínico. Las decisiones que se derivan de su uso han de ser evaluadas por un profesional con experiencia en el tratamiento de esta entidad. No nos hacemos responsables de las consecuencias que pudieran ocurrir por el uso de esta aplicación.
+  </p>
+</div>
+
+<div class="row marketing">
   <div id="restricciones">
    <ul>
     <li>
@@ -2041,7 +2047,7 @@
       <div class="alert alert-success" ng-show='tratamientos.acetazolamida.recomendado(respuestas)'>Recomendado
         <br/>
         <div ng-show='tratamientos.acetazolamida.sinergias(respuestas) > 0'>
-            Sirve para tratar las siguientes condiciones concomitantes: 
+            Sirve para tratar las siguientes condiciones concomitantes:
             <ul>
                 <li ng-show='respuestas.edema'>Edemas por causa medicamentosa o insuficiencia cardiaca.</li>
                 <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
@@ -2068,7 +2074,7 @@
         </ul>
         <br/>
         <div ng-show='tratamientos.acetazolamida.sinergias(respuestas) > 0'>
-            Sirve para tratar las siguientes condiciones concomitantes: 
+            Sirve para tratar las siguientes condiciones concomitantes:
             <ul>
                 <li ng-show='respuestas.edema'>Edemas por causa medicamentosa o insuficiencia cardiaca.</li>
                 <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
@@ -2099,7 +2105,7 @@
       <div class="alert alert-success" ng-show='tratamientos.amitriptilina.recomendado(respuestas)'>Recomendado
         <br/>
         <div ng-show='tratamientos.amitriptilina.sinergias(respuestas) > 0'>
-            Sirve para tratar las siguientes condiciones concomitantes: 
+            Sirve para tratar las siguientes condiciones concomitantes:
             <ul>
                 <li ng-show='respuestas.depresin'>Depresión.</li>
                 <li ng-show='respuestas.eneuresis_nocturna'>Eneuresis nocturna sin causa orgánica.</li>
@@ -2173,7 +2179,7 @@
         </ul>
         <br/>
         <div ng-show='tratamientos.amitriptilina.sinergias(respuestas) > 0'>
-            Sirve para tratar las siguientes condiciones concomitantes: 
+            Sirve para tratar las siguientes condiciones concomitantes:
             <ul>
                 <li ng-show='respuestas.depresin'>Depresión.</li>
                 <li ng-show='respuestas.eneuresis_nocturna'>Eneuresis nocturna sin causa orgánica.</li>
@@ -2221,7 +2227,7 @@
           <li ng-show="respuestas.farma_tacrolimus">Posible prolongación del intervalo QT por uso simultáneo de tacrolimus.</li>
           <li ng-show="respuestas.farma_tranilcipromina">Posible aparición de síndrome serotoninérgico por uso simultáneo de tranilcipromina.</li>
           <li ng-show="respuestas.farma_valproato">Posible acumulación de amitriptilina por uso simultáneo de valproato.</li>
-          <li ng-show="respuestas.farma_valpromida">Posible acumulación de amitriptilina por uso simultáneo de valpromida.</li>      
+          <li ng-show="respuestas.farma_valpromida">Posible acumulación de amitriptilina por uso simultáneo de valpromida.</li>
         </ul>
       </div>
     </li>
@@ -2260,7 +2266,7 @@
       <div class="alert alert-success" ng-show='tratamientos.propranolol.recomendado(respuestas)'>Recomendado
         <br/>
         <div ng-show='tratamientos.propranolol.sinergias(respuestas) > 0'>
-            Sirve para tratar las siguientes condiciones concomitantes: 
+            Sirve para tratar las siguientes condiciones concomitantes:
             <ul>
                 <li ng-show='respuestas.angina'>Anginas de pecho de repetición.</li>
                 <li ng-show='respuestas.ansiedad'>Ansiedad con taquicardias y temblores.</li>
@@ -2400,7 +2406,7 @@
         </ul>
         <br/>
         <div ng-show='tratamientos.propranolol.sinergias(respuestas) > 0'>
-            Sirve para tratar las siguientes condiciones concomitantes: 
+            Sirve para tratar las siguientes condiciones concomitantes:
             <ul>
                 <li ng-show='respuestas.angina'>Anginas de pecho de repetición.</li>
                 <li ng-show='respuestas.ansiedad'>Ansiedad con taquicardias y temblores.</li>
@@ -2411,7 +2417,7 @@
                 <li ng-show='respuestas.tirotoxicosis'>Tirotoxicosis.</li>
                 <li ng-show='respuestas.varices_esofgicas'>Varices esofágicas.</li>
             </ul>
-        </div>  
+        </div>
             </div>
       <div class="alert alert-danger" ng-show='tratamientos.propranolol.prohibido(respuestas)'>
         Terminalmente prohibido por:
@@ -2457,7 +2463,7 @@
       <div class="alert alert-success" ng-show='tratamientos.topiramato.recomendado(respuestas)'>Recomendado
         <br/>
         <div ng-show='tratamientos.topiramato.sinergias(respuestas) > 0'>
-            Sirve para tratar las siguientes condiciones concomitantes: 
+            Sirve para tratar las siguientes condiciones concomitantes:
             <ul>
                 <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
             </ul>
@@ -2491,7 +2497,7 @@
         </ul>
         <br/>
         <div ng-show='tratamientos.topiramato.sinergias(respuestas) > 0'>
-            Sirve para tratar las siguientes condiciones concomitantes: 
+            Sirve para tratar las siguientes condiciones concomitantes:
             <ul>
                 <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
             </ul>
@@ -2630,4 +2636,3 @@
     </label>
   </div>
 </div>
-
