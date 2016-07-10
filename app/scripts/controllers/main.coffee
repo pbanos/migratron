@@ -163,6 +163,7 @@ angular.module 'emilienkoTreeApp'
         noRecomendado: (respuestas) ->
             !@prohibido(respuestas) and 
             (respuestas.insuficiencia_heptica or
+            respuestas.obesidad or
             respuestas.farma_carbamazepina or
             respuestas.farma_ciproterona or
             respuestas.farma_eslicarbazepina or
@@ -170,6 +171,7 @@ angular.module 'emilienkoTreeApp'
             respuestas.farma_valproato)
         prohibido: (respuestas) ->
             respuestas.embarazo or
+            respuestas.lactancia or
             respuestas.alergia_flunarizina or
             respuestas.parkinson or
             respuestas.depresin or
@@ -373,6 +375,7 @@ angular.module 'emilienkoTreeApp'
         prohibido: (respuestas) ->
             respuestas.embarazo or
             respuestas.alergia_topiramato or
+            respuestas.anorexia or
             respuestas.alcohol or
             respuestas.farma_acetazolamida or
             respuestas.farma_cidoascrbico or
@@ -387,7 +390,7 @@ angular.module 'emilienkoTreeApp'
             respuestas.farma_triamtereno or
             respuestas.farma_zonisamida
         sinergias: (respuestas) ->
-            [respuestas.epilepsia].reduce((total, respuesta) ->
+            [respuestas.epilepsia, respuestas.obesidad].reduce((total, respuesta) ->
                 total + (if respuesta then 1 else 0)
             , 0)
     valproato = 
@@ -398,6 +401,7 @@ angular.module 'emilienkoTreeApp'
             (respuestas.porfiria or
             respuestas.dolor_abdominal or
             respuestas.pancreatitis or
+            respuestas.obesidad or
             respuestas.aplasia_medular or
             respuestas.insuficiencia_renal or
             respuestas.tendencia_suicida or

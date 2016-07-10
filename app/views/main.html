@@ -32,6 +32,23 @@
         </div>
       </div>
     </li>
+        <li>
+      ¿Se encuentra en periodo de lactancia y no desea interrumpirla?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="lactancia" data-ng-value="true" ng-model="respuestas.lactancia">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="lactancia" data-ng-value="false" ng-model="respuestas.lactancia">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
     <li>
       ¿Es alérgico o intolerante a acetazolamida?
       <div class="form-group">
@@ -423,6 +440,23 @@
         </div>
       </div>
     </li>
+        <li>
+      Sobrepeso u obesidad. ¿El paciente tiene sobrepeso, está obeso o está preocupado por ganar peso?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="obesidad" data-ng-value="true" ng-model="respuestas.obesidad">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="obesidad" data-ng-value="false" ng-model="respuestas.obesidad">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
     <li>
       Aplasia de médula ósea. ¿El paciente tiene antecedentes de aplasia de médula ósea?
       <div class="form-group">
@@ -628,6 +662,23 @@
       </div>
     </li>
     <li>
+      Anorexia nerviosa. ¿El paciente sufre de anorexia nerviosa?
+      <div class="form-group">
+        <div class="radio">
+            <label>
+                <input type="radio" name="anorexia" data-ng-value="true" ng-model="respuestas.anorexia">
+                Sí
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="anorexia" data-ng-value="false" ng-model="respuestas.anorexia">
+                No
+            </label>
+        </div>
+      </div>
+    </li>
+    <li>        
       Alteraciones cognitivas o de la conducta. ¿Se han observado en el paciente alteraciones cognitivas o de la conducta?
       <div class="form-group">
         <div class="radio">
@@ -2016,6 +2067,11 @@
             <input type="checkbox" ng-model="respuestas.miocardiopata_hipertrfica">Miocardiopatía hipertrófica obstructiva
         </label>
     </div>
+        <div>
+        <label>
+            <input type="checkbox" ng-model="respuestas.obesidad">Obesidad
+        </label>
+    </div>
     <div>
         <label>
             <input type="checkbox" ng-model="respuestas.temblor_esencial">Temblor esencial
@@ -2087,7 +2143,7 @@
       <div class="alert alert-danger" ng-show='tratamientos.acetazolamida.prohibido(respuestas)'>
         Terminalmente prohibido por:
         <ul>
-          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación (categoría C de la FDA).</li>
           <li ng-show='respuestas.alergia_acetazolamida'>Alergia o intolerancia al fármaco.</li>
           <li ng-show='respuestas.acidosis_metablica'>Contraindicada en casos de acidosis metabólica hiperclorémica.</li>
           <li ng-show='respuestas.depresin'>Contraindicada en caso de depresión.</li>
@@ -2191,7 +2247,7 @@
       <div class="alert alert-danger" ng-show='tratamientos.amitriptilina.prohibido(respuestas)'>
         Terminalmente prohibido por:
         <ul>
-          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación (categoría C de la FDA).</li>
           <li ng-show='respuestas.alergia_amitriptilina'>Alergia o intolerancia al fármaco.</li>
           <li ng-show='respuestas.infarto_de_miocardio'>Aumenta el riesgo de sufrir un bloqueo cardiaco en el periodo de recuperación de un infarto de miocardio.</li>
           <li ng-show='respuestas.alcohol'>El paciente desea tomar bebidas alcohólicas durante el tratamiento.</li>
@@ -2242,6 +2298,7 @@
         No recomendado por:
         <ul>
           <li ng-show='respuestas.cardiopatia'>Cardiopatia</li>
+          <li ng-show='respuestas.obesidad'>Puede ocasionar aumento de peso.</li>
           <li ng-show='respuestas.insuficiencia_heptica'>Dado que se metaboliza principalmente en el hígado, deberá ajustarse la posología al grado funcional hepático.</li>
           <li ng-show="respuestas.farma_carbamazepina">Posible pérdida de eficacia de flunarizina por uso simultáneo de carbamazepina.</li>
           <li ng-show="respuestas.farma_ciproterona">Aumento del riesgo de galactorrea por uso simultáneo de ciproterona.</li>
@@ -2254,7 +2311,8 @@
       <div class="alert alert-danger" ng-show='tratamientos.flunarizina.prohibido(respuestas)'>
         Terminalmente prohibido por:
         <ul>
-          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación (categoría C de la FDA).</li>
+          <li ng-show='respuestas.lactancia'>En caso de lactancia, tiene efecto sedante sobre el niño.</li>
           <li ng-show='respuestas.alergia_flunarizina'>Alergia o intolerancia al fármaco.</li>
           <li ng-show='respuestas.parkinson'>Puede producir síntomas extrapiramidales parkinsonianos durante tratamientos prolongados, especialmente en ancianos.</li>
           <li ng-show='respuestas.depresin'>No se aconseja el uso en caso de depresión. Puede precipitar, además, la aparición de depresión.</li>
@@ -2424,7 +2482,7 @@
       <div class="alert alert-danger" ng-show='tratamientos.propranolol.prohibido(respuestas)'>
         Terminalmente prohibido por:
         <ul>
-          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación (categoría C de la FDA).</li>
           <li ng-show='respuestas.alergia_propranolol'>Alergia o intolerancia al fármaco.</li>
           <li ng-show='respuestas.hipotension'>Contraindicado en pacientes con tensión arterial sistólica inferior a 100 mmHg.</li>
           <li ng-show='respuestas.bradicardia'>Contraindicado en pacientes con frecuencia cardiaca inferior a 50 lpm.</li>
@@ -2468,6 +2526,7 @@
             Sirve para tratar las siguientes condiciones concomitantes:
             <ul>
                 <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
+                <li ng-show='respuestas.obesidad'>Obesidad o sobrepeso.</li>
             </ul>
         </div></div>
       <div class="alert alert-warning" ng-show='tratamientos.topiramato.noRecomendado(respuestas)'>
@@ -2502,14 +2561,16 @@
             Sirve para tratar las siguientes condiciones concomitantes:
             <ul>
                 <li ng-show='respuestas.epilepsia'>Epilepsia.</li>
+                <li ng-show='respuestas.obesidad'>Obesidad o sobrepeso.</li>
             </ul>
         </div>
       </div>
       <div class="alert alert-danger" ng-show='tratamientos.topiramato.prohibido(respuestas)'>
         Terminalmente prohibido por:
         <ul>
-          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación (categoría C de la FDA).</li>
           <li ng-show='respuestas.alergia_topiramato'>Alergia o intolerancia al fármaco.</li>
+          <li ng-show="respuestas.anorexia">Causa pérdida de peso y no se debe utilizar en caso de anorexia nerviosa.</li>
           <li ng-show='respuestas.alcohol'>El paciente desea tomar bebidas alcohólicas durante el tratamiento.</li>
           <li ng-show="respuestas.farma_acetazolamida">Mayor incidencia de nefrolitiasis por acetazolamida.</li>
           <li ng-show="respuestas.farma_cidoascrbico">Mayor incidencia de nefrolitiasis por ácido ascórbico.</li>
@@ -2547,6 +2608,7 @@
           <li ng-show='respuestas.porfiria'>Su metabolización hepática puede potenciar la síntesis de determinados enzimas como la ALA sintetasa, que puede dar lugar a un aumento de porfirinas, lo que provoca la exacerbación de la enfermedad.</li>
           <li ng-show='respuestas.dolor_abdominal'>En muy raras ocasiones, se han documentado pancreatitis graves.</li>
           <li ng-show='respuestas.pancreatitis'>En muy raras ocasiones, se han documentado pancreatitis graves.</li>
+          <li ng-show='respuestas.obesidad'>Puede ocasionar aumento de peso.</li>
           <li ng-show='respuestas.aplasia_medular'>Ocasionalmente produce depresión reversible de la médula ósea.</li>
           <li ng-show='respuestas.insuficiencia_renal'>En caso de insuficiencia renal, pueden aumentar sus concentraciones séricas libres, debiendo disminuir la posología.</li>
           <li ng-show='respuestas.tendencia_suicida'>La toma de antiepilépticos se ha asociado con tendencia suicida.</li>
@@ -2604,7 +2666,7 @@
       <div class="alert alert-danger" ng-show='tratamientos.valproato.prohibido(respuestas)'>
         Terminalmente prohibido por:
         <ul>
-          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación.</li>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación (categoría D de la FDA).</li>
           <li ng-show='respuestas.alergia_valproato'>Alergia o intolerancia al fármaco.</li>
           <li ng-show='respuestas.insuficiencia_heptica'>Alto riesgo de hepatotoxicidad en caso de insuficiencia hepática.</li>
           <li ng-show='respuestas.hepatitis_aguda_o_crnica'>Alto riesgo de hepatotoxicidad en caso de hepatitis aguda o crónica.</li>
