@@ -15,11 +15,11 @@ angular.module 'emilienkoTreeApp'
       'Karma'
     ]
     $scope.respuestas = {}
-    acetazolamida = 
+    acetazolamida =
         recomendado: (respuestas) ->
             !@prohibido(respuestas) and !@noRecomendado(respuestas)
         noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and 
+            !@prohibido(respuestas) and
             (respuestas.insuficiencia_heptica or
             respuestas.diabetes or
             respuestas.insuficiencia_renal or
@@ -49,11 +49,11 @@ angular.module 'emilienkoTreeApp'
             [respuestas.edema, respuestas.epilepsia, respuestas.glaucoma].reduce((total, respuesta) ->
                 total + (if respuesta then 1 else 0)
             , 0)
-    amitriptilina = 
+    amitriptilina =
         recomendado: (respuestas) ->
             !@prohibido(respuestas) and !@noRecomendado(respuestas)
         noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and 
+            !@prohibido(respuestas) and
             (respuestas.arritmia_o_bloqueo_cardiaco or
             respuestas.insuficiencia_heptica or
             respuestas.hipertiroidismo or
@@ -157,11 +157,11 @@ angular.module 'emilienkoTreeApp'
             [respuestas.depresin, respuestas.dolor_neuroptico, respuestas.eneuresis_nocturna].reduce((total, respuesta) ->
                 total + (if respuesta then 1 else 0)
             , 0)
-    flunarizina = 
+    flunarizina =
         recomendado: (respuestas) ->
             !@prohibido(respuestas) and !@noRecomendado(respuestas)
         noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and 
+            !@prohibido(respuestas) and
             (respuestas.insuficiencia_heptica or
             respuestas.obesidad or
             respuestas.farma_carbamazepina or
@@ -181,11 +181,11 @@ angular.module 'emilienkoTreeApp'
             [].reduce((total, respuesta) ->
                 total + (if respuesta then 1 else 0)
             , 0)
-    propranolol = 
+    propranolol =
         recomendado: (respuestas) ->
             !@prohibido(respuestas) and !@noRecomendado(respuestas)
         noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and 
+            !@prohibido(respuestas) and
             (respuestas.COMarteriopatia or
             respuestas.arteriopata_perifrica or
             respuestas.psoriasis or
@@ -345,11 +345,11 @@ angular.module 'emilienkoTreeApp'
             [respuestas.angina, respuestas.ansiedad, respuestas.arritmia_cardiaca, respuestas.hipertensin_arterial, respuestas.tirotoxicosis, respuestas.miocardiopata_hipertrfica, respuestas.temblor_esencial, respuestas.varices_esofgicas].reduce((total, respuesta) ->
                 total + (if respuesta then 1 else 0)
             , 0)
-    topiramato = 
+    topiramato =
         recomendado: (respuestas) ->
             !@prohibido(respuestas) and !@noRecomendado(respuestas)
         noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and 
+            !@prohibido(respuestas) and
             (respuestas.fotosensibilidad or
             respuestas.insuficiencia_heptica or
             respuestas.acidosis_metablica or
@@ -393,11 +393,11 @@ angular.module 'emilienkoTreeApp'
             [respuestas.epilepsia, respuestas.obesidad].reduce((total, respuesta) ->
                 total + (if respuesta then 1 else 0)
             , 0)
-    valproato = 
+    valproato =
         recomendado: (respuestas) ->
             !@prohibido(respuestas) and !@noRecomendado(respuestas)
         noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and 
+            !@prohibido(respuestas) and
             (respuestas.porfiria or
             respuestas.dolor_abdominal or
             respuestas.pancreatitis or
@@ -443,7 +443,8 @@ angular.module 'emilienkoTreeApp'
             respuestas.farma_oxazepam or
             respuestas.farma_pinazepam or
             respuestas.farma_triazolam or
-            respuestas.farma_zolpidem)
+            respuestas.farma_zolpidem or
+            true)
         prohibido: (respuestas) ->
             respuestas.embarazo or
             respuestas.alergia_valproato or
@@ -467,7 +468,7 @@ angular.module 'emilienkoTreeApp'
             [respuestas.ausencias, respuestas.epilepsia, respuestas.tics, respuestas.trastorno_bipolar].reduce((total, respuesta) ->
                 total + (if respuesta then 1 else 0)
             , 0)
-    $scope.tratamientos= 
+    $scope.tratamientos=
         propranolol: propranolol
         acetazolamida: acetazolamida
         amitriptilina: amitriptilina
@@ -476,7 +477,7 @@ angular.module 'emilienkoTreeApp'
         valproato: valproato
     $scope.tratamientos_por_precio = [amitriptilina, acetazolamida, propranolol, flunarizina, valproato, topiramato]
     $scope.mostrar_evaluacion_completa = false
-    $scope.visible = (tratamiento) -> 
+    $scope.visible = (tratamiento) ->
       tratamiento == $scope.recomendado()
     $scope.recomendado = () ->
       $scope.tratamientosAdecuados()[0]
