@@ -186,7 +186,7 @@ angular.module 'emilienkoTreeApp'
             !@prohibido(respuestas) and !@noRecomendado(respuestas)
         noRecomendado: (respuestas) ->
             !@prohibido(respuestas) and
-            (respuestas.COMarteriopatia or
+            (respuestas.embarazo or
             respuestas.arteriopata_perifrica or
             respuestas.psoriasis or
             respuestas.insuficiencia_heptica or
@@ -308,7 +308,6 @@ angular.module 'emilienkoTreeApp'
             respuestas.farma_vildagliptina or
             respuestas.farma_xilometazolinanasal)
         prohibido: (respuestas) ->
-            respuestas.embarazo or
             respuestas.alergia_propranolol or
             respuestas.hipotension or
             respuestas.bradicardia or

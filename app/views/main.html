@@ -2342,6 +2342,7 @@
       <div class="alert alert-warning" ng-show='tratamientos.propranolol.noRecomendado(respuestas)'>
         No recomendado por:
         <ul>
+          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación (categoría C de la FDA). Sin embargo, parece la opción más segura durante la gestación, debiendo valorar la relación riesgo beneficio e intentando evitarlo en el primer trimestre.</li>
           <li ng-show='respuestas.cardiopatia'>Cardiopatia</li>
           <li ng-show='respuestas.arteriopata_perifrica'>Puede disminuir la circulación periférica.</li>
           <li ng-show='respuestas.psoriasis'>Puede exacerbar la psoriasis.</li>
@@ -2482,7 +2483,6 @@
       <div class="alert alert-danger" ng-show='tratamientos.propranolol.prohibido(respuestas)'>
         Terminalmente prohibido por:
         <ul>
-          <li ng-show='respuestas.embarazo'>Embarazo o deseo de gestación (categoría C de la FDA).</li>
           <li ng-show='respuestas.alergia_propranolol'>Alergia o intolerancia al fármaco.</li>
           <li ng-show='respuestas.hipotension'>Contraindicado en pacientes con tensión arterial sistólica inferior a 100 mmHg.</li>
           <li ng-show='respuestas.bradicardia'>Contraindicado en pacientes con frecuencia cardiaca inferior a 50 lpm.</li>
