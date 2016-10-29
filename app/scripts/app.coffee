@@ -2,14 +2,14 @@
 
 ###*
  # @ngdoc overview
- # @name emilienkoTreeApp
+ # @name Migratron
  # @description
- # # emilienkoTreeApp
+ # # Migratron
  #
  # Main module of the application.
 ###
 angular
-  .module 'emilienkoTreeApp', [
+  .module 'Migratron', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -27,4 +27,3 @@ angular
         controller: 'AboutCtrl'
       .otherwise
         redirectTo: '/'
-

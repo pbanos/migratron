@@ -2,497 +2,150 @@
 
 ###*
  # @ngdoc function
- # @name emilienkoTreeApp.controller:MainCtrl
+ # @name Migratron.controller:MainCtrl
  # @description
  # # MainCtrl
- # Controller of the emilienkoTreeApp
+ # Controller of the Migratron
 ###
-angular.module 'emilienkoTreeApp'
+
+angular.module 'Migratron'
   .controller 'MainCtrl', ($scope) ->
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate'
-      'AngularJS'
-      'Karma'
-    ]
-    $scope.respuestas = {}
+    $scope.answers = {}
     acetazolamida =
-        recomendado: (respuestas) ->
-            !@prohibido(respuestas) and !@noRecomendado(respuestas)
-        noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and
-            (respuestas.insuficiencia_heptica or
-            respuestas.diabetes or
-            respuestas.insuficiencia_renal or
-            respuestas.gota__hiperuricemia or
-            respuestas.clculos_urinarios or
-            respuestas.farma_carbamazepina or
-            respuestas.farma_eslicarbazepina or
-            respuestas.farma_fenitona or
-            respuestas.farma_fenobarbital or
-            respuestas.farma_primidona or
-            respuestas.farma_pseudoefedrina or
-            respuestas.farma_timololoftlmico)
-        prohibido: (respuestas) ->
-            respuestas.embarazo or
-            respuestas.alergia_acetazolamida or
-            respuestas.acidosis_metablica or
-            respuestas.depresin or
-            respuestas.farma_cidoacetilsaliclico or
-            respuestas.farma_ciclosporina or
-            respuestas.farma_digoxina or
-            respuestas.farma_lisdexanfetamina or
-            respuestas.farma_carbonatodelitio or
-            respuestas.farma_metildigoxina or
-            respuestas.farma_topiramato or
-            respuestas.farma_zonisamida
-        sinergias: (respuestas) ->
-            [respuestas.edema, respuestas.epilepsia, respuestas.glaucoma].reduce((total, respuesta) ->
-                total + (if respuesta then 1 else 0)
-            , 0)
+        price: 2
+        forbidden: (answers) ->
+            (answers.embarazo or answers.alergiaacetazolamida or answers.acidosismetabolica or answers.depresion or answers.farmaacidoacetilsalicilico or answers.farmaciclosporina or answers.farmadigoxina or answers.farmalisdexanfetamina or answers.farmacarbonatodelitio or answers.farmametildigoxina or answers.farmatopiramato or answers.farmazonisamida)
+        notRecommended: (answers) ->
+            !@forbidden(answers) and
+            (answers.insuficienciahepatica or answers.diabetes or answers.insuficienciarenal or answers.gotahiperuricemia or answers.calculosurinarios or answers.farmacarbamazepina or answers.farmaeslicarbazepina or answers.farmafenitoina or answers.farmafenobarbital or answers.farmaprimidona or answers.farmapseudoefedrina or answers.farmatimololoftalmico)
+        recommended: (answers) ->
+            !@forbidden(answers) and
+            !@notRecommended(answers) and
+            true
+        concomitantConditions: (answers) ->
+            [answers.edema, answers.epilepsia, answers.glaucoma].filter((condition) ->
+              condition
+            ).length
     amitriptilina =
-        recomendado: (respuestas) ->
-            !@prohibido(respuestas) and !@noRecomendado(respuestas)
-        noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and
-            (respuestas.arritmia_o_bloqueo_cardiaco or
-            respuestas.insuficiencia_heptica or
-            respuestas.hipertiroidismo or
-            respuestas.epilepsia or
-            respuestas.glaucoma or
-            respuestas.esquizofrenia or
-            respuestas.trastorno_bipolar or
-            respuestas.tendencia_suicida or
-            respuestas.hipertrofia_prosttica_o_uropata_obstructiva or
-            respuestas.angina or
-            respuestas.estrenimiento or
-            respuestas.fotosensibilidad or
-            respuestas.feocromocitoma or
-            respuestas.farma_altizida or
-            respuestas.farma_baclofeno or
-            respuestas.farma_bendroflumetiazida or
-            respuestas.farma_biperideno or
-            respuestas.farma_bumetanida or
-            respuestas.farma_bupropin or
-            respuestas.farma_citalopram or
-            respuestas.farma_clortalidona or
-            respuestas.farma_diazepam or
-            respuestas.farma_disulfiram or
-            respuestas.farma_escopolamina or
-            respuestas.farma_estradiol or
-            respuestas.farma_estriol or
-            respuestas.farma_etinilestradiol or
-            respuestas.farma_fluconazol or
-            respuestas.farma_furosemida or
-            respuestas.farma_granisetrn or
-            respuestas.farma_hidroclorotiazida or
-            respuestas.farma_hiprico or
-            respuestas.farma_indapamida or
-            respuestas.farma_josamicina or
-            respuestas.farma_levodopa or
-            respuestas.farma_morfina or
-            respuestas.farma_ondansetrn or
-            respuestas.farma_palonosetrn or
-            respuestas.farma_piretanida or
-            respuestas.farma_prociclinida or
-            respuestas.farma_sertralina or
-            respuestas.farma_sulfacrato or
-            respuestas.farma_terbinafina or
-            respuestas.farma_torasemida or
-            respuestas.farma_trihexifenilo or
-            respuestas.farma_xipamida or
-            respuestas.farma_escitalopram or
-            respuestas.farma_fenilefrinanasal or
-            respuestas.farma_formoterol or
-            respuestas.farma_metildopa or
-            respuestas.farma_mirabegron or
-            respuestas.farma_nafazolinanasal or
-            respuestas.farma_oximetazolinanasal or
-            respuestas.farma_nilotinib or
-            respuestas.farma_paroxetina or
-            respuestas.farma_ritonavir or
-            respuestas.farma_tramazolinanasal or
-            respuestas.farma_xilometazolinanasal or
-            respuestas.farma_estrgenosconjugados)
-        prohibido: (respuestas) ->
-            respuestas.embarazo or
-            respuestas.alergia_amitriptilina or
-            respuestas.infarto_de_miocardio or
-            respuestas.alcohol or
-            respuestas.farma_adenosina or
-            respuestas.farma_trixidodearsnico or
-            respuestas.farma_atomoxetina or
-            respuestas.farma_atropina or
-            respuestas.farma_carbamazepina or
-            respuestas.farma_clonidina or
-            respuestas.farma_clorpromacina or
-            respuestas.farma_clozapina or
-            respuestas.farma_droperidol or
-            respuestas.farma_epinefrina or
-            respuestas.farma_eslicarbazepina or
-            respuestas.farma_epinefrina or
-            respuestas.farma_fenilefrinanasal or
-            respuestas.farma_fenobarbital or
-            respuestas.farma_flufenacina or
-            respuestas.farma_fluoxetina or
-            respuestas.farma_fluvoxamina or
-            respuestas.farma_haloperidol or
-            respuestas.farma_levomepromazina or
-            respuestas.farma_linezolid or
-            respuestas.farma_carbonatodelitio or
-            respuestas.farma_moclobemida or
-            respuestas.farma_norepinefrina or
-            respuestas.farma_perfenazina or
-            respuestas.farma_periciazina or
-            respuestas.farma_pimozida or
-            respuestas.farma_rasagilina or
-            respuestas.farma_saquinavir or
-            respuestas.farma_selegilina or
-            respuestas.farma_sotalol or
-            respuestas.farma_sunitinib or
-            respuestas.farma_tacrolimus or
-            respuestas.farma_tranilcipromina or
-            respuestas.farma_valproato or
-            respuestas.farma_valpromida
-        sinergias: (respuestas) ->
-            [respuestas.depresin, respuestas.dolor_neuroptico, respuestas.eneuresis_nocturna].reduce((total, respuesta) ->
-                total + (if respuesta then 1 else 0)
-            , 0)
+        price: 1
+        forbidden: (answers) ->
+            (answers.embarazo or answers.alergiaamitriptilina or answers.infartodemiocardio or answers.alcohol or answers.farmaadenosina or answers.farmatrioxidodearsenico or answers.farmaatomoxetina or answers.farmaatropina or answers.farmacarbamazepina or answers.farmaclonidina or answers.farmaclorpromacina or answers.farmaclozapina or answers.farmadroperidol or answers.farmaepinefrina or answers.farmaeslicarbazepina or answers.farmaepinefrina or answers.farmafenilefrinanasal or answers.farmafenobarbital or answers.farmaflufenacina or answers.farmafluoxetina or answers.farmafluvoxamina or answers.farmahaloperidol or answers.farmalevomepromazina or answers.farmalinezolid or answers.farmacarbonatodelitio or answers.farmamoclobemida or answers.farmanorepinefrina or answers.farmaperfenazina or answers.farmapericiazina or answers.farmapimozida or answers.farmarasagilina or answers.farmasaquinavir or answers.farmaselegilina or answers.farmasotalol or answers.farmasunitinib or answers.farmatacrolimus or answers.farmatranilcipromina or answers.farmavalproato or answers.farmavalpromida)
+        notRecommended: (answers) ->
+            !@forbidden(answers) and
+            (answers.angina or answers.arritmiaobloqueocardiaco or answers.insuficienciahepatica or answers.hipertiroidismo or answers.epilepsia or answers.glaucoma or answers.esquizofrenia or answers.trastornobipolar or answers.tendenciasuicida or answers.hipertrofiaprostaticaouropatiaobstructiva or answers.estrenimiento or answers.fotosensibilidad or answers.feocromocitoma or answers.farmaaltizida or answers.farmabaclofeno or answers.farmabendroflumetiazida or answers.farmabiperideno or answers.farmabumetanida or answers.farmabupropion or answers.farmacitalopram or answers.farmaclortalidona or answers.farmadiazepam or answers.farmadisulfiram or answers.farmaescopolamina or answers.farmaestradiol or answers.farmaestriol or answers.farmaetinilestradiol or answers.farmafluconazol or answers.farmafurosemida or answers.farmagranisetron or answers.farmahidroclorotiazida or answers.farmahiperico or answers.farmaindapamida or answers.farmajosamicina or answers.farmalevodopa or answers.farmamorfina or answers.farmaondansetron or answers.farmapalonosetron or answers.farmapiretanida or answers.farmaprociclinida or answers.farmasertralina or answers.farmasulfacrato or answers.farmaterbinafina or answers.farmatorasemida or answers.farmatrihexifenilo or answers.farmaxipamida or answers.farmaescitalopram or answers.farmafenilefrinanasal or answers.farmaformoterol or answers.farmametildopa or answers.farmamirabegron or answers.farmanafazolinanasal or answers.farmaoximetazolinanasal or answers.farmanilotinib or answers.farmaparoxetina or answers.farmaritonavir or answers.farmatramazolinanasal or answers.farmaxilometazolinanasal or answers.farmaestrogenosconjugados)
+        recommended: (answers) ->
+            !@forbidden(answers) and
+            !@notRecommended(answers) and
+            true
+        concomitantConditions: (answers) ->
+            [answers.depresion, answers.eneuresisnocturna, answers.dolorneuropatico].filter((condition) ->
+              condition
+            ).length
     flunarizina =
-        recomendado: (respuestas) ->
-            !@prohibido(respuestas) and !@noRecomendado(respuestas)
-        noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and
-            (respuestas.insuficiencia_heptica or
-            respuestas.obesidad or
-            respuestas.farma_carbamazepina or
-            respuestas.farma_ciproterona or
-            respuestas.farma_eslicarbazepina or
-            respuestas.farma_fenitona or
-            respuestas.farma_valproato)
-        prohibido: (respuestas) ->
-            respuestas.embarazo or
-            respuestas.lactancia or
-            respuestas.alergia_flunarizina or
-            respuestas.parkinson or
-            respuestas.depresin or
-            respuestas.alcohol or
-            respuestas.farma_etinilestradiol
-        sinergias: (respuestas) ->
-            [].reduce((total, respuesta) ->
-                total + (if respuesta then 1 else 0)
-            , 0)
+        price: 4
+        forbidden: (answers) ->
+            (answers.embarazo or answers.lactancia or answers.alergiaflunarizina or answers.parkinson or answers.depresion or answers.alcohol or answers.farmaetinilestradiol)
+        notRecommended: (answers) ->
+            !@forbidden(answers) and
+            (answers.obesidad or answers.insuficienciahepatica or answers.farmacarbamazepina or answers.farmaciproterona or answers.farmaeslicarbazepina or answers.farmafenitoina or answers.farmavalproato)
+        recommended: (answers) ->
+            !@forbidden(answers) and
+            !@notRecommended(answers) and
+            true
+        concomitantConditions: (answers) ->
+            [].filter((condition) ->
+              condition
+            ).length
     propranolol =
-        recomendado: (respuestas) ->
-            !@prohibido(respuestas) and !@noRecomendado(respuestas)
-        noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and
-            (respuestas.embarazo or
-            respuestas.arteriopata_perifrica or
-            respuestas.psoriasis or
-            respuestas.insuficiencia_heptica or
-            respuestas.hipertiroidismo or
-            respuestas.diabetes or
-            respuestas.insuficiencia_renal or
-            respuestas.miastenia_gravis or
-            respuestas.depresin or
-            respuestas.feocromocitoma or
-            respuestas.farma_abiraterona or
-            respuestas.farma_aceclofenaco or
-            respuestas.farma_acenocumarol or
-            respuestas.farma_cidoacetilsaliclico or
-            respuestas.farma_amiodarona or
-            respuestas.farma_cidoascrbico or
-            respuestas.farma_celecoxib or
-            respuestas.farma_colestipol or
-            respuestas.farma_colestiramina or
-            respuestas.farma_dexibuprofeno or
-            respuestas.farma_dexketoprofeno or
-            respuestas.farma_diazepam or
-            respuestas.farma_diclofenaco or
-            respuestas.farma_diltiazem or
-            respuestas.farma_dronedarona or
-            respuestas.farma_ergotamina or
-            respuestas.farma_estradiol or
-            respuestas.farma_estriol or
-            respuestas.farma_estrgenosconjugados or
-            respuestas.farma_etinilestradiol or
-            respuestas.farma_etoricoxib or
-            respuestas.farma_fenobarbital or
-            respuestas.farma_flecainida or
-            respuestas.farma_flurbiprofeno or
-            respuestas.farma_fluvoxamina or
-            respuestas.farma_heparina or
-            respuestas.farma_hidralazina or
-            respuestas.farma_ibuprofeno or
-            respuestas.farma_imipramina or
-            respuestas.farma_indometacina or
-            respuestas.farma_isonixina or
-            respuestas.farma_ketoprofeno or
-            respuestas.farma_ketorolaco or
-            respuestas.farma_lornoxicam or
-            respuestas.farma_maprotilina or
-            respuestas.farma_cidomefenmico or
-            respuestas.farma_meloxicam or
-            respuestas.farma_nabumetona or
-            respuestas.farma_naproxeno or
-            respuestas.farma_neostigmina or
-            respuestas.farma_nifedipino or
-            respuestas.farma_cidoniflmico or
-            respuestas.farma_paracetamol or
-            respuestas.farma_parecoxib or
-            respuestas.farma_bromurodepiridostigmina or
-            respuestas.farma_piroxicam or
-            respuestas.farma_promestrieno or
-            respuestas.farma_propafenona or
-            respuestas.farma_rifampicina or
-            respuestas.farma_rizatriptn or
-            respuestas.farma_clorurodesuxametonio or
-            respuestas.farma_tenoxicam or
-            respuestas.farma_teofilina or
-            respuestas.farma_terbinafina or
-            respuestas.farma_tiopentalsdico or
-            respuestas.farma_verapamilo or
-            respuestas.farma_warfarina or
-            respuestas.farma_acarbosa or
-            respuestas.farma_agomelatina or
-            respuestas.farma_albiglutida or
-            respuestas.farma_algeldrato or
-            respuestas.farma_almasilato or
-            respuestas.farma_alprostadilo or
-            respuestas.farma_canaglifozina or
-            respuestas.farma_citalopram or
-            respuestas.farma_codena or
-            respuestas.farma_dapaglifozina or
-            respuestas.farma_empaglifozina or
-            respuestas.farma_escitalopram or
-            respuestas.farma_exenatida or
-            respuestas.farma_fampridina or
-            respuestas.farma_fenilefrinanasal or
-            respuestas.farma_fentanilo or
-            respuestas.farma_galantamina or
-            respuestas.farma_glibenclamida or
-            respuestas.farma_gliclazida or
-            respuestas.farma_glimepirida or
-            respuestas.farma_glipizida or
-            respuestas.farma_glisentida or
-            respuestas.farma_gomaguar or
-            respuestas.farma_haloperidol or
-            respuestas.farma_imatinib or
-            respuestas.farma_insulina or
-            respuestas.farma_linagliptina or
-            respuestas.farma_liraglutida or
-            respuestas.farma_lixisenatida or
-            respuestas.farma_carbonatodemagnesio or
-            respuestas.farma_hidrxidodemagnesio or
-            respuestas.farma_xidodemagnesio or
-            respuestas.farma_trisilicatodemagnesio or
-            respuestas.farma_metadona or
-            respuestas.farma_metformina or
-            respuestas.farma_miglitol or
-            respuestas.farma_modafilino or
-            respuestas.farma_morfina or
-            respuestas.farma_nafazolinanasal or
-            respuestas.farma_nateglinida or
-            respuestas.farma_nisoldipino or
-            respuestas.farma_opio or
-            respuestas.farma_oximetazolinanasal or
-            respuestas.farma_petidina or
-            respuestas.farma_pioglitazona or
-            respuestas.farma_pixantrona or
-            respuestas.farma_ranolazina or
-            respuestas.farma_repaglinida or
-            respuestas.farma_saxagliptina or
-            respuestas.farma_sitagliptina or
-            respuestas.farma_tramazolinanasal or
-            respuestas.farma_vemurafenib or
-            respuestas.farma_vildagliptina or
-            respuestas.farma_xilometazolinanasal)
-        prohibido: (respuestas) ->
-            respuestas.alergia_propranolol or
-            respuestas.hipotension or
-            respuestas.bradicardia or
-            respuestas.arritmia_o_bloqueo_cardiaco or
-            respuestas.acidosis_metablica or
-            respuestas.asma or
-            respuestas.farma_bambuterol or
-            respuestas.farma_clonidina or
-            respuestas.farma_clorazepatodipotsico or
-            respuestas.farma_clordiacepxido or
-            respuestas.farma_clorpromacina or
-            respuestas.farma_disopiramida or
-            respuestas.farma_dopamina or
-            respuestas.farma_epinefrina or
-            respuestas.farma_fenilefrinanasal or
-            respuestas.farma_fingolimod or
-            respuestas.farma_fluoxetina or
-            respuestas.farma_formoterol or
-            respuestas.farma_hidroclorotiazida or
-            respuestas.farma_indacaterol or
-            respuestas.farma_lidocana or
-            respuestas.farma_medazepam or
-            respuestas.farma_metacolina or
-            respuestas.farma_nimodipino or
-            respuestas.farma_olodaterol or
-            respuestas.farma_pinazepam or
-            respuestas.farma_prazosina or
-            respuestas.farma_procainamida or
-            respuestas.farma_salbutamol or
-            respuestas.farma_salmeterol or
-            respuestas.farma_terbutalina or
-            respuestas.farma_vilanterol
-        sinergias: (respuestas) ->
-            [respuestas.angina, respuestas.ansiedad, respuestas.arritmia_cardiaca, respuestas.hipertensin_arterial, respuestas.tirotoxicosis, respuestas.miocardiopata_hipertrfica, respuestas.temblor_esencial, respuestas.varices_esofgicas].reduce((total, respuesta) ->
-                total + (if respuesta then 1 else 0)
-            , 0)
+        price: 3
+        forbidden: (answers) ->
+            (answers.alergiapropranolol or answers.hipotension or answers.bradicardia or answers.arritmiaobloqueocardiaco or answers.acidosismetabolica or answers.asma or answers.farmabambuterol or answers.farmaclonidina or answers.farmaclorazepatodipotasico or answers.farmaclordiacepoxido or answers.farmaclorpromacina or answers.farmadisopiramida or answers.farmadopamina or answers.farmaepinefrina or answers.farmafenilefrinanasal or answers.farmafingolimod or answers.farmafluoxetina or answers.farmaformoterol or answers.farmahidroclorotiazida or answers.farmaindacaterol or answers.farmalidocaina or answers.farmamedazepam or answers.farmametacolina or answers.farmanimodipino or answers.farmaolodaterol or answers.farmapinazepam or answers.farmaprazosina or answers.farmaprocainamida or answers.farmasalbutamol or answers.farmasalmeterol or answers.farmaterbutalina or answers.farmavilanterol)
+        notRecommended: (answers) ->
+            !@forbidden(answers) and
+            (answers.embarazo or answers.arteriopatiaperiferica or answers.psoriasis or answers.insuficienciahepatica or answers.hipertiroidismo or answers.diabetes or answers.insuficienciarenal or answers.miasteniagravis or answers.depresion or answers.feocromocitoma or answers.farmaabiraterona or answers.farmaaceclofenaco or answers.farmaacenocumarol or answers.farmaacidoacetilsalicilico or answers.farmaamiodarona or answers.farmaacidoascorbico or answers.farmacelecoxib or answers.farmacolestipol or answers.farmacolestiramina or answers.farmadexibuprofeno or answers.farmadexketoprofeno or answers.farmadiazepam or answers.farmadiclofenaco or answers.farmadiltiazem or answers.farmadronedarona or answers.farmaergotamina or answers.farmaestradiol or answers.farmaestriol or answers.farmaestrogenosconjugados or answers.farmaetinilestradiol or answers.farmaetoricoxib or answers.farmafenobarbital or answers.farmaflecainida or answers.farmaflurbiprofeno or answers.farmafluvoxamina or answers.farmaheparina or answers.farmahidralazina or answers.farmaibuprofeno or answers.farmaimipramina or answers.farmaindometacina or answers.farmaisonixina or answers.farmaketoprofeno or answers.farmaketorolaco or answers.farmalornoxicam or answers.farmamaprotilina or answers.farmaacidomefenamico or answers.farmameloxicam or answers.farmanabumetona or answers.farmanaproxeno or answers.farmaneostigmina or answers.farmanifedipino or answers.farmaacidoniflumico or answers.farmaparacetamol or answers.farmaparecoxib or answers.farmabromurodepiridostigmina or answers.farmapiroxicam or answers.farmapromestrieno or answers.farmapropafenona or answers.farmarifampicina or answers.farmarizatriptan or answers.farmaclorurodesuxametonio or answers.farmatenoxicam or answers.farmateofilina or answers.farmaterbinafina or answers.farmatiopentalsodico or answers.farmaverapamilo or answers.farmawarfarina or answers.farmaacarbosa or answers.farmaagomelatina or answers.farmaalbiglutida or answers.farmaalgeldrato or answers.farmaalmasilato or answers.farmaalprostadilo or answers.farmacanaglifozina or answers.farmacitalopram or answers.farmacodeina or answers.farmadapaglifozina or answers.farmaempaglifozina or answers.farmaescitalopram or answers.farmaexenatida or answers.farmafampridina or answers.farmafenilefrinanasal or answers.farmafentanilo or answers.farmagalantamina or answers.farmaglibenclamida or answers.farmagliclazida or answers.farmaglimepirida or answers.farmaglipizida or answers.farmaglisentida or answers.farmagomaguar or answers.farmahaloperidol or answers.farmaimatinib or answers.farmainsulina or answers.farmalinagliptina or answers.farmaliraglutida or answers.farmalixisenatida or answers.farmacarbonatodemagnesio or answers.farmahidroxidodemagnesio or answers.farmaoxidodemagnesio or answers.farmatrisilicatodemagnesio or answers.farmametadona or answers.farmametformina or answers.farmamiglitol or answers.farmamodafilino or answers.farmamorfina or answers.farmanafazolinanasal or answers.farmanateglinida or answers.farmanisoldipino or answers.farmaopio or answers.farmaoximetazolinanasal or answers.farmapetidina or answers.farmapioglitazona or answers.farmapixantrona or answers.farmaranolazina or answers.farmarepaglinida or answers.farmasaxagliptina or answers.farmasitagliptina or answers.farmatramazolinanasal or answers.farmavemurafenib or answers.farmavildagliptina or answers.farmaxilometazolinanasal)
+        recommended: (answers) ->
+            !@forbidden(answers) and
+            !@notRecommended(answers) and
+            true
+        concomitantConditions: (answers) ->
+            [answers.angina, answers.ansiedad, answers.arritmiacardiaca, answers.hipertensionarterial, answers.miocardiopatiahipertrofica, answers.tembloresencial, answers.tirotoxicosis, answers.varicesesofagicas].filter((condition) ->
+              condition
+            ).length
     topiramato =
-        recomendado: (respuestas) ->
-            !@prohibido(respuestas) and !@noRecomendado(respuestas)
-        noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and
-            (respuestas.fotosensibilidad or
-            respuestas.insuficiencia_heptica or
-            respuestas.acidosis_metablica or
-            respuestas.insuficiencia_renal or
-            respuestas.glaucoma or
-            respuestas.tendencia_suicida or
-            respuestas.depresin or
-            respuestas.alteraciones_cognitivas or
-            respuestas.clculos_urinarios or
-            respuestas.farma_carbamazepina or
-            respuestas.farma_digoxina or
-            respuestas.farma_eslicarbazepina or
-            respuestas.farma_etinilestradiol or
-            respuestas.farma_fenitona or
-            respuestas.farma_fenobarbital or
-            respuestas.farma_glibenclamida or
-            respuestas.farma_hidroclorotiazida or
-            respuestas.farma_carbonatodelitio or
-            respuestas.farma_metformina or
-            respuestas.farma_pioglitazona or
-            respuestas.farma_valproato or
-            respuestas.farma_primidona)
-        prohibido: (respuestas) ->
-            respuestas.embarazo or
-            respuestas.alergia_topiramato or
-            respuestas.anorexia or
-            respuestas.alcohol or
-            respuestas.farma_acetazolamida or
-            respuestas.farma_cidoascrbico or
-            respuestas.farma_carbonatodecalcio or
-            respuestas.farma_clorurodecalcio or
-            respuestas.farma_fosfatodecalcio or
-            respuestas.farma_lactatodecalcio or
-            respuestas.farma_pidolatodecalcio or
-            respuestas.farma_clopidogrel or
-            respuestas.farma_gluconatodecalcio or
-            respuestas.farma_saquinavir or
-            respuestas.farma_triamtereno or
-            respuestas.farma_zonisamida
-        sinergias: (respuestas) ->
-            [respuestas.epilepsia, respuestas.obesidad].reduce((total, respuesta) ->
-                total + (if respuesta then 1 else 0)
-            , 0)
+        price: 6
+        forbidden: (answers) ->
+            (answers.embarazo or answers.alergiatopiramato or answers.anorexia or answers.alcohol or answers.farmaacetazolamida or answers.farmaacidoascorbico or answers.farmacarbonatodecalcio or answers.farmaclorurodecalcio or answers.farmafosfatodecalcio or answers.farmalactatodecalcio or answers.farmapidolatodecalcio or answers.farmaclopidogrel or answers.farmagluconatodecalcio or answers.farmasaquinavir or answers.farmatriamtereno or answers.farmazonisamida)
+        notRecommended: (answers) ->
+            !@forbidden(answers) and
+            (answers.fotosensibilidad or answers.insuficienciahepatica or answers.acidosismetabolica or answers.insuficienciarenal or answers.glaucoma or answers.tendenciasuicida or answers.depresion or answers.alteracionescognitivas or answers.calculosurinarios or answers.farmacarbamazepina or answers.farmadigoxina or answers.farmaeslicarbazepina or answers.farmaetinilestradiol or answers.farmafenitoina or answers.farmafenobarbital or answers.farmaglibenclamida or answers.farmahidroclorotiazida or answers.farmacarbonatodelitio or answers.farmametformina or answers.farmapioglitazona or answers.farmavalproato or answers.farmaprimidona)
+        recommended: (answers) ->
+            !@forbidden(answers) and
+            !@notRecommended(answers) and
+            true
+        concomitantConditions: (answers) ->
+            [answers.epilepsia, answers.obesidad].filter((condition) ->
+              condition
+            ).length
     valproato =
-        recomendado: (respuestas) ->
-            !@prohibido(respuestas) and !@noRecomendado(respuestas)
-        noRecomendado: (respuestas) ->
-            !@prohibido(respuestas) and
-            (respuestas.porfiria or
-            respuestas.dolor_abdominal or
-            respuestas.pancreatitis or
-            respuestas.obesidad or
-            respuestas.aplasia_medular or
-            respuestas.insuficiencia_renal or
-            respuestas.tendencia_suicida or
-            respuestas.depresin or
-            respuestas.lupus or
-            respuestas.farma_acenocumarol or
-            respuestas.farma_cidoacetilsaliclico or
-            respuestas.farma_aciclovir or
-            respuestas.farma_bleomicina or
-            respuestas.farma_cisplatino or
-            respuestas.farma_clonacepam or
-            respuestas.farma_clorpromacina or
-            respuestas.farma_colestiramina or
-            respuestas.farma_diazepam or
-            respuestas.farma_doxorubicina or
-            respuestas.farma_etosuximida or
-            respuestas.farma_flunarizina or
-            respuestas.farma_lamotrigina or
-            respuestas.farma_lorazepam or
-            respuestas.farma_metotrexato or
-            respuestas.farma_naproxeno or
-            respuestas.farma_orlistat or
-            respuestas.farma_oxcarbazepina or
-            respuestas.farma_oxibatosdico or
-            respuestas.farma_rufinamida or
-            respuestas.farma_topiramato or
-            respuestas.farma_vinblastina or
-            respuestas.farma_warfarina or
-            respuestas.farma_zidovudina or
-            respuestas.farma_alprazolam or
-            respuestas.farma_bromazepam or
-            respuestas.farma_clorazepatodipotsico or
-            respuestas.farma_clordiacepxido or
-            respuestas.farma_clotiazepam or
-            respuestas.farma_fenilbutiratosdico or
-            respuestas.farma_flurazepam or
-            respuestas.farma_lormetazepam or
-            respuestas.farma_medazepam or
-            respuestas.farma_oxazepam or
-            respuestas.farma_pinazepam or
-            respuestas.farma_triazolam or
-            respuestas.farma_zolpidem or
-            true)
-        prohibido: (respuestas) ->
-            respuestas.embarazo or
-            respuestas.alergia_valproato or
-            respuestas.insuficiencia_heptica or
-            respuestas.hepatitis_aguda_o_crnica or
-            respuestas.farma_amitriptilina or
-            respuestas.farma_carbamazepina or
-            respuestas.farma_clobazam or
-            respuestas.farma_clomipramina or
-            respuestas.farma_clozapina or
-            respuestas.farma_ertapenem or
-            respuestas.farma_eslicarbazepina or
-            respuestas.farma_fenitona or
-            respuestas.farma_fenobarbital or
-            respuestas.farma_imipenem or
-            respuestas.farma_meropenem or
-            respuestas.farma_nimodipino or
-            respuestas.farma_nortriptilina or
-            respuestas.farma_primidona
-        sinergias: (respuestas) ->
-            [respuestas.ausencias, respuestas.epilepsia, respuestas.tics, respuestas.trastorno_bipolar].reduce((total, respuesta) ->
-                total + (if respuesta then 1 else 0)
-            , 0)
-    $scope.tratamientos=
-        propranolol: propranolol
-        acetazolamida: acetazolamida
-        amitriptilina: amitriptilina
-        flunarizina: flunarizina
-        topiramato: topiramato
-        valproato: valproato
-    $scope.tratamientos_por_precio = [amitriptilina, acetazolamida, propranolol, flunarizina, valproato, topiramato]
-    $scope.mostrar_evaluacion_completa = false
-    $scope.visible = (tratamiento) ->
-      tratamiento == $scope.recomendado()
-    $scope.recomendado = () ->
-      $scope.tratamientosAdecuados()[0]
-    $scope.tratamientosAdecuados = () ->
-      $scope.tratamientos_por_precio.filter((tratamiento) ->
-        not tratamiento.prohibido($scope.respuestas)
+        price: 5
+        forbidden: (answers) ->
+            (answers.embarazo or answers.alergiavalproato or answers.insuficienciahepatica or answers.hepatitisagudaocronica or answers.farmaamitriptilina or answers.farmacarbamazepina or answers.farmaclobazam or answers.farmaclomipramina or answers.farmaclozapina or answers.farmaertapenem or answers.farmaeslicarbazepina or answers.farmafenitoina or answers.farmafenobarbital or answers.farmaimipenem or answers.farmameropenem or answers.farmanimodipino or answers.farmanortriptilina or answers.farmaprimidona)
+        notRecommended: (answers) ->
+            !@forbidden(answers) and
+            (true or answers.porfiria or answers.dolorabdominal or answers.pancreatitis or answers.obesidad or answers.aplasiamedular or answers.insuficienciarenal or answers.tendenciasuicida or answers.depresion or answers.lupus or answers.farmaacenocumarol or answers.farmaacidoacetilsalicilico or answers.farmaaciclovir or answers.farmableomicina or answers.farmacisplatino or answers.farmaclonacepam or answers.farmaclorpromacina or answers.farmacolestiramina or answers.farmadiazepam or answers.farmadoxorubicina or answers.farmaetosuximida or answers.farmaflunarizina or answers.farmalamotrigina or answers.farmalorazepam or answers.farmametotrexato or answers.farmanaproxeno or answers.farmaorlistat or answers.farmaoxcarbazepina or answers.farmaoxibatosodico or answers.farmarufinamida or answers.farmatopiramato or answers.farmavinblastina or answers.farmawarfarina or answers.farmazidovudina or answers.farmaalprazolam or answers.farmabromazepam or answers.farmaclorazepatodipotasico or answers.farmaclordiacepoxido or answers.farmaclotiazepam or answers.farmafenilbutiratosodico or answers.farmaflurazepam or answers.farmalormetazepam or answers.farmamedazepam or answers.farmaoxazepam or answers.farmapinazepam or answers.farmatriazolam or answers.farmazolpidem)
+        recommended: (answers) ->
+            !@forbidden(answers) and
+            !@notRecommended(answers) and
+            true
+        concomitantConditions: (answers) ->
+            [answers.ausencias, answers.epilepsia, answers.tics, answers.trastornobipolar].filter((condition) ->
+              condition
+            ).length
+    $scope.therapies=
+      acetazolamida: acetazolamida
+      amitriptilina: amitriptilina
+      flunarizina: flunarizina
+      propranolol: propranolol
+      topiramato: topiramato
+      valproato: valproato
+    $scope.defaultTherapyOrder = [acetazolamida, amitriptilina, flunarizina, propranolol, topiramato, valproato]
+    $scope.showCompleteEvaluation = false
+    $scope.visible = (therapy) ->
+      therapy == $scope.recommendedTherapy()
+    $scope.recommendedTherapy = () ->
+      $scope.suitableTherapies()[0]
+    $scope.recommendationLevel = (therapy) ->
+      return 0 if therapy.forbidden($scope.answers)
+      return 1 if therapy.notRecommended($scope.answers)
+      return 2 if therapy.recommended($scope.answers)
+      return -1
+    $scope.suitableTherapies = () ->
+      $scope.defaultTherapyOrder.filter((therapy) ->
+        not therapy.forbidden($scope.answers)
       ).sort((a, b) ->
-        a_recomendado = a.recomendado($scope.respuestas)
-        if a_recomendado == b.recomendado($scope.respuestas)
-          b.sinergias($scope.respuestas) - a.sinergias($scope.respuestas)
-        else
-          if a_recomendado then -1 else 1
+        a_level = $scope.recommendationLevel(a)
+        b_level = $scope.recommendationLevel(b)
+        return b_level - a_level if a_level != b_level
+        a_level = a.concomitantConditions($scope.answers)
+        b_level = b.concomitantConditions($scope.answers)
+        return b_level - a_level if a_level != b_level
+        a_level = -a.price
+        b_level = -b.price
+        return b_level - a_level if a_level != b_level
+        return 0
       )
-    $scope.empateResueltoPorPrecio = () ->
-      tratamientosAdecuados = $scope.tratamientosAdecuados()
-      return false if tratamientosAdecuados.length < 2
-      recomendado = tratamientosAdecuados[0]
-      segundo_mejor = tratamientosAdecuados[1]
-      (recomendado.recomendado($scope.respuestas) == segundo_mejor.recomendado($scope.respuestas)) and (recomendado.sinergias($scope.respuestas) == segundo_mejor.sinergias($scope.respuestas))
+    $scope.drawResolvedByConcomitantconditions = () ->
+      suitableTherapies = $scope.suitableTherapies()
+      return false if suitableTherapies.length < 2
+      recommended = suitableTherapies[0]
+      second_best = suitableTherapies[1]
+      return false if $scope.recommendationLevel(recommended) != $scope.recommendationLevel(second_best)
+      return recommended.concomitantConditions($scope.answers) != second_best.concomitantConditions($scope.answers)
+    $scope.drawResolvedByPrice = () ->
+      suitableTherapies = $scope.suitableTherapies()
+      return false if suitableTherapies.length < 2
+      recommended = suitableTherapies[0]
+      second_best = suitableTherapies[1]
+      return false if $scope.recommendationLevel(recommended) != $scope.recommendationLevel(second_best)
+      return false if recommended.concomitantConditions($scope.answers) != second_best.concomitantConditions($scope.answers)
+      return recommended.price != second_best.price

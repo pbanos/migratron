@@ -3,7 +3,7 @@
 describe 'Controller: AboutCtrl', ->
 
   # load the controller's module
-  beforeEach module 'emilienkoTreeApp'
+  beforeEach module 'Migratron'
 
   AboutCtrl = {}
   scope = {}

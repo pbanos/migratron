@@ -2,12 +2,12 @@
 
 ###*
  # @ngdoc function
- # @name emilienkoTreeApp.controller:AboutCtrl
+ # @name Migratron.controller:AboutCtrl
  # @description
  # # AboutCtrl
- # Controller of the emilienkoTreeApp
+ # Controller of the Migratron
 ###
-angular.module 'emilienkoTreeApp'
+angular.module 'Migratron'
   .controller 'AboutCtrl', ($scope) ->
     $scope.awesomeThings = [
       'HTML5 Boilerplate'
